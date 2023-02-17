@@ -1,0 +1,46 @@
+.botao {
+    box-sizing: border-box;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: fit-content;
+    padding: 0 16px;
+    
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.botao--azul {
+    background-color: var(--azul-100);
+    color: var(--branco);
+    transition: .1s;
+}
+
+.botao--azul:hover {
+    background-color: var(--azul-80);
+    transition: .1s;
+}
+
+.botao--transparente {
+    border: solid 1px var(--azul-100);
+    color: var(--azul-100);
+    transition: .1s;
+}
+
+.botao--transparente:hover {
+    background-color: var(--azul-10);
+    transition: .1s;
+}
+
+.botao--cinza {
+    color: var(--preto-75);
+    background-color: var(--branco);
+}
+
+.botao--cinza:hover {
+    background-color: var(--preto-02);
+    transition: .1s;
+}
