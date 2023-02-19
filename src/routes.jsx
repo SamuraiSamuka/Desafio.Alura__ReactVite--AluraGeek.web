@@ -1,9 +1,12 @@
 import React from 'react'
 import { createRoot } from "react-dom/client"
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import './index.css'
-import Root, {loader as rootLoader} from './Pages/Root'
-import PaginaProduto, {loader as produtoLoader} from './Pages/Root/PaginaProduto'
+import './reset.css'
+import './app.css'
+import Root, {loader as rootLoader} from './Pages/Root.jsx'
+import PaginaProduto, {loader as produtoLoader} from './Pages/PaginaProduto.jsx'
+import PaginaInicial, {loader as inicioLoader} from './Pages/PaginaInicial'
+import PaginaCadastroProduto from './Pages/PaginaCadastroProduto'
 
 const router = createBrowserRouter([
   {
@@ -12,9 +15,18 @@ const router = createBrowserRouter([
     loader: rootLoader,
     children: [
       {
+        path: "/",
+        element: <PaginaInicial />,
+        loader: inicioLoader
+      },
+      {
         path: "produtos/:produtoId",
         element: <PaginaProduto />,
         loader: produtoLoader
+      },
+      {
+        path: "cadastroProduto",
+        element: <PaginaCadastroProduto />
       }
     ]
   }

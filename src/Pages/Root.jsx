@@ -1,8 +1,10 @@
 import { Link, Outlet, useLoaderData } from "react-router-dom";
-import { getProdutos } from "../../produtos";
-import dados from '../../db.json'
+import { getProdutos } from "../produtos";
+import dados from '../db.json'
 import { v4 as uuidv4 } from 'uuid';
 import localforage from "localforage";
+import Cabecalho from "../Components/Cabecalho";
+import Rodape from "../Components/Rodape";
 
 const produtosIniciais = dados.produtos.map(produto => {
   let produtoConvertido = {
@@ -30,10 +32,10 @@ export default function Root() {
     let { produtos } = useLoaderData();
   return (
     <div>
-        <h1>Cabecalho</h1>
+        <Cabecalho produtos={produtos} />
         <Outlet />
         {produtos.map(produto => <li key={produto.id}><Link to={`produtos/${produto.id}`}>{produto.nome}</Link> - {produto.preco}</li>)}
-        <h1>Rodapé</h1>
+        <Rodape />
     </div>
   )
 }

@@ -1,0 +1,66 @@
+.cabecalho {
+    height: 72px;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+
+    background-color: var(--branco);
+}
+
+.icone__lupa-mobile {
+    display: flex;
+    justify-self: flex-end;
+}
+
+.icone__close-mobile {
+    display: none;
+    justify-self: flex-end;
+}
+
+.cabecalho .botao--transparente {
+    padding: 0 clamp(10px, 5vw, 60px);
+    height: 40px;
+}
+
+.caixa-busca-mobile {
+    display: none;
+}
+
+
+@media screen and (min-width: 720px) {
+    .cabecalho{
+        margin-bottom: 0px;
+    }
+
+    .icone__lupa-mobile, .icone__close-mobile {
+        display: none;
+    }
+
+    .cabecalho .botao--transparente {
+        padding: 0 clamp(10px, 5vw, 50px);
+    }
+
+    .caixa-busca-cabecalho {
+        position: relative;
+    }
+
+    .caixa-busca-mobile {
+        position: absolute;
+    }
+}
+
+@media screen and (min-width: 1020px) {
+    .cabecalho {
+        height: 80px;
+    }
+}
+
+@media screen and (min-width: 1650px) {
+    .cabecalho {
+        justify-content: space-between;
+    }
+}

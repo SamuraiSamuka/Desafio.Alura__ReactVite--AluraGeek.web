@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap');
+
+:root {
+  --azul-10: #eaf2fd;
+  --azul-20: #d4e4f4;
+  --azul-80: #5595e9;
+  --azul-100: #2474e4;
+  --azul-background: rgb(225, 230, 235);
+  
+  --branco: #ffffff;
+  --background: #e5e5e569;
+  --preto-02: #fafafa;
+  --preto-05: #f5f5f5;
+  --preto-10: #eaeaea;
+  --preto-25: #d2d2d2;
+  --preto-50: #a2a2a2;
+  --preto-75: #878787;
+  --preto-100: #464646;
+  --cinza: #fbfbfb;
+}
+
+body {
+  font-family: 'raleway';
+}
+
+.App {
+  font-family: 'raleway', sans-serif;
+  font-size: 16px;
+  line-height: 1;
+  color: var(--preto-100);
+  background-color: var(--background);
+  box-sizing: border-box;
+}
+
+.principal {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  background-color: var(--background);
+}
+
+.container {
+    padding: 16px 5% 
+}
+
+
+/* .dont-show {
+  display: none;
+} */
+
+@media screen and (min-width: 450px) {
+  /* ~8% 192*/
+  .container {
+    padding: 16px calc((100% - 390px)/2);
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .container {
+    padding: 16px calc((100% - 620px)/2);
+  }
+}
+
+@media screen and (min-width: 1020px) {
+  /* ~8% 205 */
+  .container {
+      padding: 16px calc((100% - 830px)/2);
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  /* ~8% 205 */
+  .container {
+      padding: 16px calc((100% - 1040px)/2);
+  }
+}
+
+@media screen and (min-width: 1650px) {
+  /* ~16% 240 */
+  .container {
+      padding: 24px calc((100% - 1250px)/2);
+  }
+}

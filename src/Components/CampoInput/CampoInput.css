@@ -1,0 +1,159 @@
+.campo {
+    display: flex;
+    align-items: center;
+    position: relative;
+    box-sizing: border-box;
+    min-height: 56px;
+    width: 100%;
+    padding: 12px 8px 2px 12px;
+
+    background-color: var(--branco);
+    border-bottom: solid 2px var(--preto-25);
+    border-radius: 4px;
+}
+
+.campo:focus-within {
+    outline: var(--preto-50) solid 1px;
+}
+
+.campo__label {
+    position: absolute;
+    top: 8px;
+
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--preto-50);
+}
+
+.campo__input {
+    width: 100%;
+    height: 30px;
+    margin-top: 12px;
+    padding: 0;
+    
+    font-weight: 400;
+    
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.campo__input:focus-within {
+    outline: none;
+}
+
+
+.campo__icone{
+    margin: 13px 0px 5px 5px;
+    color: var(--preto-50);
+    cursor: pointer;
+}
+
+
+
+/* Select */
+.campo-selecao {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.campo-selecao .botao, .campo-selecao-addOpcao .botao {
+    width: fit-content;
+    height: 58px;
+    padding: 5px 14px;
+    
+    border: none;
+    border-bottom: solid 2px var(--preto-25);
+    cursor: pointer;
+}
+
+.campo-selecao__adicionar-opcao {
+    transition: .1s;
+}
+
+.rotate45{
+    transform: rotate(-45deg);
+    transition: .1s;
+}
+
+.campo-selecao-addOpcao {
+    display: flex;
+    padding: 0 10px;
+    margin-top: 5px;
+}
+
+.campo-selecao-addOpcao .campo{
+    background-color: var(--cinza);
+}
+
+.campo-selecao-addOpcao .botao--cinza {
+    background-color: var(--cinza);
+    margin-left: 7px;
+}
+
+
+
+/* Text-area */
+.campo-textarea {
+    padding: 8px 2px 4px 10px;
+    margin: 0;
+}
+
+.campo-textarea:focus-within {
+    outline: var(--preto-50) solid 1px;
+}
+
+.campo-textarea__input {
+    resize: vertical;
+    width: 100%;
+    min-height: 80px;
+    max-height: 160px;
+    padding: 0;
+    
+    font-weight: 400;
+}
+
+.campo-textarea__input:focus-within {
+    outline: none;
+}
+
+.campo-radio {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
+
+
+/* Erros */
+.campo__animacao__erro {
+    animation: change-color 1s ease-in 0s 1 normal;
+    background-color: rgb(255, 239, 239);
+}
+
+.campo__erro {
+    display: none;
+    position: absolute;
+    top: 9px;
+    right: 35px;
+
+    font-size: 14px;
+    color: rgb(253, 90, 90);
+}
+
+.campo__erro__icone {
+    display: none;
+    position: absolute;
+    top: 4px;
+    right: 6px;
+
+    color: rgb(253, 90, 90);
+}
+
+@keyframes change-color {
+    0% { background-color: white; }
+    10% { 
+        background-color: rgb(255, 172, 172);
+        color: rgb(70, 70, 70); 
+    }
+}

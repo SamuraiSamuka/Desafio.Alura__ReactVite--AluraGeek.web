@@ -1,6 +1,6 @@
 import { useLoaderData } from "react-router-dom"
-import ProdutoDetalhado from "../../Components/Produto Detalhado";
-import { getProduto } from "../../produtos";
+import ProdutoDetalhado from "../Components/Produto Detalhado";
+import { getProduto } from "../produtos";
 
 export async function loader({params}) {
   const produto = await getProduto(params.produtoId)
