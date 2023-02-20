@@ -2,7 +2,7 @@ import './CampoInput.css'
 import Botao from '../Botao'
 import { useState } from 'react'
 
-const CampoInput = ({id, type, children, valor, minimo, maximo, required, validacaoCustomizada, aoAlterado, opcoesLista, addOpcao, icone, comportamentoIcone}) => {
+const CampoInput = ({id, type, name, children, valor, minimo, maximo, required, validacaoCustomizada, aoAlterado, opcoesLista, addOpcao, icone, comportamentoIcone}) => {
     const [opcoes, setOpcoes] = useState(opcoesLista)
 
     function verificaSeValido (evento, mensagemErroCustomizada) {
@@ -75,10 +75,10 @@ const CampoInput = ({id, type, children, valor, minimo, maximo, required, valida
                 <div className='campo-selecao'>
                     <div className="campo">
                         <label className="campo__label">{children}</label>
-                        <select className="campo__input" id={id} onChange={evento => aoAlterado? aoAlterado(evento): '' } value={valor} required={required}>
+                        <select className="campo__input" id={id} name={name || ""} onChange={evento => aoAlterado? aoAlterado(evento): '' } value={valor} required={required}>
                             <option key={0}></option>
                             {opcoes.map((item, i) =>{
-                                return <option key={item}>{item}</option>
+                                return <option key={item+i}>{item}</option>
                             })}
                         </select>
                         <span className="material-symbols-outlined campo__erro__icone">error</span>
@@ -100,6 +100,7 @@ const CampoInput = ({id, type, children, valor, minimo, maximo, required, valida
             <div className="campo campo-textarea">
                 <textarea 
                     id={id}
+                    name={name || ""}
                     cols="auto"
                     rows="auto"
                     className="campo-textarea__input"
@@ -117,7 +118,7 @@ const CampoInput = ({id, type, children, valor, minimo, maximo, required, valida
                 {opcoes.map(item => {
                     return (
                         <div className='radio-opcao' key={item}>
-                            <input name="radio-input" type="radio" id={"radio-".concat(item)} required={required}></input>
+                            <input  name={name || "radio-input"} value={item} type="radio" id={"radio-".concat(item)} required={required}></input>
                             <label htmlFor={"radio-".concat(item)}>{item}</label>
                         </div>
                     )
@@ -130,6 +131,7 @@ const CampoInput = ({id, type, children, valor, minimo, maximo, required, valida
                 <input 
                     className="campo__input" 
                     id={id} 
+                    name={name || ""}
                     type={type || "text"}
                     onBlur={(evento) => {
                         verificaSeValido(evento); 

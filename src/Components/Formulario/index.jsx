@@ -1,13 +1,11 @@
 import './Formulario.css'
 
-const Formulario = ({titulo, children, onsubmit}) => {
+const Formulario = ({titulo, children}) => {
     return (
-        <fieldset>
-        <form action="" className="formulario" onSubmit={evento => onsubmit(evento)}>
+        <div className="formulario">
             <h4 className="formulario__titulo">{titulo}</h4>
             {children}
-        </form>
-        </fieldset>
+        </div>
     )
 }
 

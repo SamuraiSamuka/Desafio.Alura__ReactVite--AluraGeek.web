@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import localforage from "localforage";
 import Cabecalho from "../Components/Cabecalho";
 import Rodape from "../Components/Rodape";
+import { getUsuarios } from "../usuarios";
 
 const produtosIniciais = dados.produtos.map(produto => {
   let produtoConvertido = {
@@ -19,13 +20,35 @@ const produtosIniciais = dados.produtos.map(produto => {
   return produtoConvertido
 })
 
+const usuariosIniciais = dados.usuarios.map(usuario => {
+  console.log(usuario)
+  let usuarioParsed = {
+    id: uuidv4(),
+    nome: usuario.nome,
+    tipo: usuario.tipo,
+    dataNascimento: Date(usuario.dataNascimento),
+    email: usuario.email,
+    senha: usuario.senha,
+    bio: usuario.bio,
+    data_criacao: new Date()
+  }
+  return usuarioParsed
+})
+
 export async function loader() {
     let produtos = await getProdutos();
     if(produtos.length < 1) {
       await localforage.setItem("produtos", produtosIniciais)
       produtos = await localforage.getItem("produtos")
     }
-    return { produtos }
+
+    let usuarios = await getUsuarios();
+    if(usuarios.length < 1) {
+      await localforage.setItem("usuarios", usuariosIniciais)
+      usuarios = await localforage.getItem("usuarios")
+    }
+    
+    return { produtos, usuarios }
 }
 
 export default function Root() {
@@ -34,7 +57,6 @@ export default function Root() {
     <div>
         <Cabecalho produtos={produtos} />
         <Outlet />
-        {produtos.map(produto => <li key={produto.id}><Link to={`produtos/${produto.id}`}>{produto.nome}</Link> - {produto.preco}</li>)}
         <Rodape />
     </div>
   )

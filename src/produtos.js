@@ -1,11 +1,17 @@
 import localforage from "localforage";
+import { matchSorter } from "match-sorter";
 import { v4 as uuidv4 } from 'uuid';
+import { limpaPatternPreco } from "./Components/CadastroProduto";
 
-export async function createProduto(dados) {
+export async function createProduto({categoria, descricao, imagem_src, nome, preco}) {
     let produto = { 
         id: uuidv4(), 
-        ...dados, 
-        data_criacao: new Date.now()
+        nome: nome,
+        imagem_src: imagem_src,
+        categoria: categoria,
+        descricao: descricao,
+        preco: Number(limpaPatternPreco(preco))/100,
+        data_criacao: new Date()
     }
     let produtos = await localforage.getItem("produtos");
     produtos.unshift(produto);

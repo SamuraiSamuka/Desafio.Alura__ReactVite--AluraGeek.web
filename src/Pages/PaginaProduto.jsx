@@ -1,15 +1,16 @@
 import { useLoaderData } from "react-router-dom"
 import ProdutoDetalhado from "../Components/Produto Detalhado";
-import { getProduto } from "../produtos";
+import SecaoProduto from "../Components/SecaoProduto";
+import { getProduto, getProdutos } from "../produtos";
 
 export async function loader({params}) {
   const produto = await getProduto(params.produtoId)
-  console.log(produto)
-  return {produto};
+  const produtos = await getProdutos();
+  return {produto, produtos};
 }
 
 export default function PaginaProduto() {
-  let { produto } = useLoaderData();
+  let { produto, produtos } = useLoaderData();
   return (
     <>
     <main className="principal">
@@ -20,6 +21,7 @@ export default function PaginaProduto() {
         imagem_src={produto.imagem_src}
         id={produto.id}
       />
+    <SecaoProduto produtos={produtos} categoria="star-wars">Produtos semelhantes</SecaoProduto>
     </main>
     </>
   )

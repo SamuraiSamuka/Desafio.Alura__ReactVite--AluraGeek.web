@@ -1,10 +1,16 @@
 import { useState } from 'react'
 import Botao from '../Botao'
 import CampoInput from '../CampoInput'
-import Formulario from '../Formulario'
+import { Form, } from 'react-router-dom'
 import './CadastroProduto.css'
+import Formulario from '../Formulario'
 
-const CadastroProduto = ({aoProdutoCadastrado, categorias}) => {
+export function limpaPatternPreco(valorInicial){
+    const valorLimpo = valorInicial.replace(/\D+/, "").replace(/[,. a-zA-Z$!@#%&*-+]/, "")
+    return valorLimpo
+}
+
+const CadastroProduto = ({categorias}) => {
 
     const [nomeProduto, setNomeProduto] = useState('')
     const [categoriaProduto, setCategoriaProduto] = useState('')
@@ -12,15 +18,15 @@ const CadastroProduto = ({aoProdutoCadastrado, categorias}) => {
     const [imagemProduto, setImagemProduto] = useState('')
     const [descricaoProduto, setDescricaoProduto] = useState('')
     
-    function limpaPattern(valorInicial){
-        const valorLimpo = valorInicial.replace(/\D+/, "").replace(/[,. a-zA-Z$!@#%&*-+]/, "")
-        return valorLimpo
-    }
+    // function limpaPatternPreco(valorInicial){
+    //     const valorLimpo = valorInicial.replace(/\D+/, "").replace(/[,. a-zA-Z$!@#%&*-+]/, "")
+    //     return valorLimpo
+    // }
 
-    function aplicaPattern(evento){
+    function aplicaPatternPreco(evento){
         const campo = evento.target
         const valor = campo.value
-        const numerosApenas = limpaPattern(valor)
+        const numerosApenas = limpaPatternPreco(valor)
         let valorTamanhoAdequado = numerosApenas
         const valorFormatado = valorTamanhoAdequado.replace(/(0*)(\d*)(\d{2}$)/,"R$ $2,$3")
         campo.value = valorFormatado
@@ -39,16 +45,13 @@ const CadastroProduto = ({aoProdutoCadastrado, categorias}) => {
         verificaSeValido(evento, "Preço inválido!")
     }
 
-    function aoSalvar(evento){
-        evento.preventDefault()
-        aoProdutoCadastrado({nome: nomeProduto, categoria: categoriaProduto, preco: parseFloat(limpaPattern(precoProduto)/100), imagem_src: imagemProduto, descricao: descricaoProduto })
-    }
-
     return (
         <div className='formulario-container container'>
-            <Formulario titulo="Adicionar novo produto" onsubmit={aoSalvar}>
+            <Formulario titulo="Adicionar novo produto" >
+            <Form method="post">
                 <CampoInput 
-                    id="produtoNome" 
+                    id="produtoNome"
+                    name="nome"
                     minimo="5" 
                     maximo="50" 
                     aoAlterado={evento => { setNomeProduto(evento.target.value) }}
@@ -56,7 +59,8 @@ const CadastroProduto = ({aoProdutoCadastrado, categorias}) => {
                     required
                 >Nome do produto</CampoInput>
                 <CampoInput 
-                    id="produtoCategoria" 
+                    id="produtoCategoria"
+                    name="categoria"
                     type="select" 
                     opcoesLista={categorias} 
                     addOpcao="true"
@@ -65,8 +69,9 @@ const CadastroProduto = ({aoProdutoCadastrado, categorias}) => {
                     required
                 >Categoria</CampoInput>
                 <CampoInput 
-                    id="produtoPreco" 
-                    aoAlterado={evento => { setPrecoProduto(aplicaPattern(evento)) }}
+                    id="produtoPreco"
+                    name="preco"  
+                    aoAlterado={evento => { setPrecoProduto(aplicaPatternPreco(evento)) }}
                     validacaoCustomizada={verificaPreco}
                     minimo='2'
                     valor={precoProduto}
@@ -74,6 +79,7 @@ const CadastroProduto = ({aoProdutoCadastrado, categorias}) => {
                 >Preço do produto</CampoInput>
                 <CampoInput 
                     id="produtoImagem" 
+                    name="imagem_src" 
                     type="url"
                     aoAlterado={evento => { setImagemProduto(evento.target.value) }}
                     valor={imagemProduto}
@@ -81,6 +87,7 @@ const CadastroProduto = ({aoProdutoCadastrado, categorias}) => {
                 >URL da imagem</CampoInput>
                 <CampoInput 
                     id="produtoDescricao" 
+                    name="descricao" 
                     type="textarea" 
                     minimo={5} 
                     maximo={400}
@@ -89,6 +96,7 @@ const CadastroProduto = ({aoProdutoCadastrado, categorias}) => {
                     required
                 >Descrição do produto</CampoInput>
                 <Botao type="submit">Adicionar produto</Botao>
+            </Form>
             </Formulario>
         </div>
     )

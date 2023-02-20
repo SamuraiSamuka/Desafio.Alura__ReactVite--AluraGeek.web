@@ -151,12 +151,12 @@
   "usuarios": [
     {
       "id": 0,
-      "nomeCompleto": "Samuel Silva",
-      "tipoUsuario": "1",
+      "nome": "Samuel Silva",
+      "tipo": "1",
       "dataNascimento": "01/01/2001",
-      "email": "samuel.carvalo.dev@gmail.com",
-      "senha": "EOQueTemosPraHoje",
-      "Status": "Trust me, I'm a programmer"
+      "email": "samuel.carvalho.dev@gmail.com",
+      "senha": "123456",
+      "bio": "Trust me, I'm a programmer"
     }
   ]
 }
