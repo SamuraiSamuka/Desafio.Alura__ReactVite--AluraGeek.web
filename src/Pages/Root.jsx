@@ -21,7 +21,6 @@ const produtosIniciais = dados.produtos.map(produto => {
 })
 
 const usuariosIniciais = dados.usuarios.map(usuario => {
-  console.log(usuario)
   let usuarioParsed = {
     id: uuidv4(),
     nome: usuario.nome,
@@ -48,7 +47,7 @@ export async function loader() {
       usuarios = await localforage.getItem("usuarios")
     }
     
-    return { produtos, usuarios }
+    return { produtos, usuarios}
 }
 
 export default function Root() {

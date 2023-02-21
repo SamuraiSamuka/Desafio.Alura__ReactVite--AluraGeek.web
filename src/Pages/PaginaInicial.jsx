@@ -15,13 +15,13 @@ export default function PaginaInicial() {
       <Banner></Banner>
       <main className='principal'>
         <SecaoProduto
-          produtos={produtos.filter(produto => produto.categoria === "star wars")}
+          produtos={produtos.filter(produto => produto.categoria === "star_wars")}
           categoria="star_wars"
         >Star Wars</SecaoProduto>
         <SecaoProduto
           produtos={produtos.filter(produto => produto.categoria === "consoles")}
-          categoria="star_wars"
-        >Diversos</SecaoProduto>
+          categoria="consoles"
+        >Consoles</SecaoProduto>
         <SecaoProduto
           produtos={produtos.filter(produto => produto.categoria === "roupas")}
           categoria="roupas"

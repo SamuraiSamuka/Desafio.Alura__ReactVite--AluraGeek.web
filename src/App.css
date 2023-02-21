@@ -39,13 +39,18 @@ body {
 }
 
 .container {
-    padding: 16px 5% 
+  padding: 16px 3% 
 }
-
 
 /* .dont-show {
   display: none;
 } */
+
+@media screen and (min-width: 385px) {
+  .container {
+      padding: 16px 5% 
+  }
+}
 
 @media screen and (min-width: 450px) {
   /* ~8% 192*/

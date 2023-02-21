@@ -21,7 +21,7 @@ export default function PaginaProduto() {
         imagem_src={produto.imagem_src}
         id={produto.id}
       />
-    <SecaoProduto produtos={produtos} categoria="star-wars">Produtos semelhantes</SecaoProduto>
+    <SecaoProduto produtos={produtos} categoria="star_wars">Produtos semelhantes</SecaoProduto>
     </main>
     </>
   )

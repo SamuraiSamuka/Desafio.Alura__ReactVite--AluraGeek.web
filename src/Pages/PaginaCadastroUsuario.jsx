@@ -12,7 +12,6 @@ export async function action({request}){
 export async function loader(){
   const usuarios = await getUsuarios();
   const emailsCadastrados = usuarios.map(usuario => usuario.email)
-  console.log(emailsCadastrados)
   return {emailsCadastrados}
 }
 

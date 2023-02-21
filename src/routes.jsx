@@ -12,6 +12,7 @@ import PaginaLogin from './Pages/PaginaLogin'
 import PaginaErro404 from './Pages/PaginaErro404'
 import Erro404 from './Components/Erro404'
 import PaginaRecuperarSenha from './Pages/PaginaRecuperarSenha'
+import PaginaTodosProdutos, {loader as todosProdutosLoader} from './Pages/PaginaTodosProdutos'
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,11 @@ const router = createBrowserRouter([
         element: <PaginaProduto />,
         errorElement: <Erro404 />,
         loader: produtoLoader
+      },
+      {
+        path: "/todosProdutos/:categoria",
+        element: <PaginaTodosProdutos />,
+        loader: todosProdutosLoader
       },
       {
         path: "/cadastroProduto",

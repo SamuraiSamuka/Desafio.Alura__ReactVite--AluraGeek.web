@@ -7,21 +7,44 @@
 .formulario__titulo {
     font-weight: 700;
     font-size: 16px;
+    margin-bottom: 10px;
 }
 
+.formulario-container{
+    min-height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formulario-container .formulario {
+    margin: 10px 0 20px;
+    width: 100%;
+}
 
 .formulario-container .formulario__titulo {
     text-align: center;
     font-size: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 22px;
 }
 
 .formulario-container .botao--azul {
     width: 100%;
 }
 
+@media screen and (min-width: 720px) {
+    .formulario-container .formulario {
+        width: 500px;
+        margin: 20px 0 40px;
+    }
+}
+
 @media screen and (min-width: 1020px) {
     .formulario-container .formulario__titulo {
         font-size: 22px;
+    }
+    
+    .formulario-container .formulario {
+        width: 550px;
     }
 }
