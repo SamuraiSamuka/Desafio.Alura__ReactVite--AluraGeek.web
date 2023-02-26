@@ -2,7 +2,7 @@ import './SecaoProduto.css'
 import Produto from "../Produto"
 import { Link } from 'react-router-dom'
 
-const SecaoProduto = ({produtos, categoria, children}) => {
+const SecaoProduto = ({produtos, categoria, children, admin}) => {
     return (
     <div className="products-section container" id={categoria}>
         <div className="products-section__header">
@@ -12,7 +12,7 @@ const SecaoProduto = ({produtos, categoria, children}) => {
             </Link>
         </div>
         <div className="products-section__body">
-            {produtos.map((produto, i) => i < 6 ? <Produto key={produto.id} id={produto.id} name={produto.nome} price={produto.preco} source={produto.imagem_src}></Produto>: "")}
+            {produtos.map((produto, i) => i < 6 ? <Produto key={produto.id} id={produto.id} name={produto.nome} price={produto.preco} source={produto.imagem_src} admin={admin}></Produto>: "")}
         </div>
     </div>)
 }

@@ -1,7 +1,7 @@
 import localforage from "localforage";
 import { matchSorter } from "match-sorter";
 import { v4 as uuidv4 } from 'uuid';
-import { limpaPatternPreco } from "./Components/CadastroProduto";
+import { limpaPatternPreco } from "../Components/CadastroProduto";
 
 export async function createProduto({categoria, descricao, imagem_src, nome, preco}) {
     let produto = { 
@@ -20,12 +20,14 @@ export async function createProduto({categoria, descricao, imagem_src, nome, pre
 }
 
 export async function getProduto(id) {
+    await fakeNetwork();
     let produtos = await localforage.getItem("produtos");
     let produto = produtos.find(produto => produto.id === id);
     return produto ?? null
 }
 
 export async function getProdutos(query){
+    await fakeNetwork();
     let produtos = await localforage.getItem("produtos");
     if (!produtos) produtos = [];
     if (query) {
@@ -35,6 +37,7 @@ export async function getProdutos(query){
 }
 
 export async function updateProduto(id, updates) {
+    await fakeNetwork();
     let produtos = await localforage.getItem("produtos");
     let produto = produtos.find(produto => produto.id === id);
     if (!produto) throw new Error("Nenhum produto encontrado com o id ", id);
@@ -44,7 +47,8 @@ export async function updateProduto(id, updates) {
 
 export async function deleteProduto(id) {
     let produtos = await localforage.getItem("produtos");
-    let indice = produtos.find(produto => produto.id === id);
+    let indice = produtos.findIndex(produto => produto.id === id);
+    console.log(indice)
     if (indice > -1){
         produtos.splice(indice, 1);
         await salvar(produtos);
@@ -56,3 +60,9 @@ export async function deleteProduto(id) {
 function salvar(produtos) {
     return localforage.setItem("produtos", produtos)
 }
+
+async function fakeNetwork() {
+    return new Promise(res => {
+      setTimeout(res, Math.random() * 800);
+    });
+  }

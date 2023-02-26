@@ -1,7 +1,7 @@
 import Banner from "../Components/Banner"
 import SecaoProduto from "../Components/SecaoProduto"
 import { useLoaderData } from "react-router-dom";
-import { getProdutos } from "../produtos";
+import { getProdutos } from "../API/produtos";
 
 export async function loader() {
     let produtos = await getProdutos();

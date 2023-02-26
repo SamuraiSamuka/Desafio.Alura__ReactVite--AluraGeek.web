@@ -1,7 +1,7 @@
 import "./TodosProdutos.css"
 import Produto from "../Produto"
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 
 export default function TodosProdutos({titulo, produtos, categorias}) {
   return (
@@ -9,8 +9,8 @@ export default function TodosProdutos({titulo, produtos, categorias}) {
         <div className="todos-produtos__cabecalho">
             <h2 className="todos-produtos__titulo" id="title">{titulo}</h2>
             <div className="todos-produtos__categorias">
-                <Link key={"todos"} to={`/todosProdutos/todos`} className="todos-produtos__botao">Todos</Link>
-                {categorias.map(categoria => <Link key={categoria} to={`/todosProdutos/${categoria}`} className="todos-produtos__botao">{categoria}</Link>)}
+                <NavLink key={"todos"} to={`/todosProdutos/todos`} className={({isActive, isPending})=> isActive? "todos-produtos__botao link-ativo":isPending? "todos-produtos__botao link-pendente" : "todos-produtos__botao"}>Todos</NavLink>
+                {categorias.map(categoria => <NavLink key={categoria} to={`/todosProdutos/${categoria}`} className={({isActive, isPending})=> isActive? "todos-produtos__botao link-ativo":isPending? "todos-produtos__botao link-pendente" : "todos-produtos__botao"}>{categoria}</NavLink>)}
             </div>
         </div>
         <div className="todos-produtos__body">

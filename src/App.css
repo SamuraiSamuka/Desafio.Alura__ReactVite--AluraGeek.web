@@ -46,6 +46,10 @@ body {
   display: none;
 } */
 
+.loading {
+  opacity: 0.5;
+}
+
 @media screen and (min-width: 385px) {
   .container {
       padding: 16px 5% 

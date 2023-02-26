@@ -11,8 +11,8 @@ const Cabecalho = ({produtos}) => {
                 <CaixaDeBusca produtos={produtos}/>
             </div>
             <Botao type="submit" aparencia="transparente" link='/login'>Login</Botao>
-            {/* <span onClick={'mostrarCaixaBusca'} id="lupa" className="icone__lupa-mobile material-symbols-outlined">search</span>
-            <span onClick={'esconderCaixaBusca'} id="close" className="icone__close-mobile material-symbols-outlined">close</span> */}
+            <span onClick={'mostrarCaixaBusca'} id="lupa" className="icone__lupa-mobile material-symbols-outlined">search</span>
+            <span onClick={'esconderCaixaBusca'} id="close" className="icone__close-mobile material-symbols-outlined">close</span>
 
         </div>
     )

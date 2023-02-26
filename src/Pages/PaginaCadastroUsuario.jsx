@@ -1,6 +1,6 @@
 import { redirect, useLoaderData } from "react-router-dom";
 import CadastroUsuario from "../Components/CadastroUsuario";
-import { createUsuario, getUsuarios } from "../usuarios";
+import { createUsuario, getUsuarios } from "../API/usuarios";
 
 export async function action({request}){
     const formData = await request.formData()

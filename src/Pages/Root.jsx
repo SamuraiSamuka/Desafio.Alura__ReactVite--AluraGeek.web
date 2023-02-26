@@ -1,11 +1,11 @@
-import { Link, Outlet, useLoaderData } from "react-router-dom";
-import { getProdutos } from "../produtos";
-import dados from '../db.json'
+import { Link, Outlet, useLoaderData, useNavigation } from "react-router-dom";
+import { getProdutos } from "../API/produtos";
+import dados from '../API/db.json'
 import { v4 as uuidv4 } from 'uuid';
 import localforage from "localforage";
 import Cabecalho from "../Components/Cabecalho";
 import Rodape from "../Components/Rodape";
-import { getUsuarios } from "../usuarios";
+import { getUsuarios } from "../API/usuarios";
 
 const produtosIniciais = dados.produtos.map(produto => {
   let produtoConvertido = {
@@ -52,10 +52,19 @@ export async function loader() {
 
 export default function Root() {
     let { produtos } = useLoaderData();
+    // retorna o estado atual da navegação que pode ser: "idle"(parado), "submitting" ou "loading"
+    const navigation = useNavigation();
+    if(navigation.state === "loading") {
+      window.scroll({top: 0, behavior: "smooth"})
+    }
   return (
     <div>
         <Cabecalho produtos={produtos} />
-        <Outlet />
+        <div
+          className={navigation.state === "loading"? "loading": ""}
+        >
+          <Outlet />
+        </div>
         <Rodape />
     </div>
   )

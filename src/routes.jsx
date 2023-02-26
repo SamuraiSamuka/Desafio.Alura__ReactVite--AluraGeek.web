@@ -13,6 +13,7 @@ import PaginaErro404 from './Pages/PaginaErro404'
 import Erro404 from './Components/Erro404'
 import PaginaRecuperarSenha from './Pages/PaginaRecuperarSenha'
 import PaginaTodosProdutos, {loader as todosProdutosLoader} from './Pages/PaginaTodosProdutos'
+import { action as destroyAction } from "./Pages/destroy.jsx"
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,9 @@ const router = createBrowserRouter([
         element: <PaginaProduto />,
         errorElement: <Erro404 />,
         loader: produtoLoader
+      },{
+        path: "/produtos/:produtoId/destroy",
+        action: destroyAction
       },
       {
         path: "/todosProdutos/:categoria",

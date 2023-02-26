@@ -32,7 +32,7 @@
 .product:hover .product__image {
     width: 100%;
     object-fit: cover;
-    opacity: 0.8;
+    opacity: 0.9;
     transition: .3s;
 }
 
@@ -61,4 +61,37 @@
     .product__image {
         width: 90%;
     }
+}
+
+.product form {
+    height: 0
+}
+
+.product__delete, .product__edit {
+    position: absolute;
+    right: 8px;
+    z-index: 2;
+    background-color: white;
+    border-radius: 5px;
+    padding: 1px 2px;
+    border: 1px solid var(--preto-10);
+    cursor: pointer;
+}
+
+.product__delete {
+    bottom: 4px;
+}
+
+.product__delete:hover {
+    background-color: #d63838;
+    color: white;
+}
+
+/* .product__edit {
+    bottom: 35px;
+} */
+
+.product__edit:hover {
+    background-color: #e6b04c;
+    color: white;
 }
