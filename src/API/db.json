@@ -150,12 +150,23 @@
   ],
   "usuarios": [
     {
-      "id": 0,
-      "nome": "Samuel Silva",
+      "id": 1,
+      "nome": "Samuel",
+      "sobrenome": "Silva de Carvalho",
       "tipo": "1",
       "dataNascimento": "01/01/2001",
       "email": "samuel.carvalho.dev@gmail.com",
-      "senha": "123456",
+      "senha": "12345678",
+      "bio": "Trust me, I'm a programmer"
+    },
+    {
+      "id": 2,
+      "nome": "Samuel",
+      "sobrenome": "Silva de Carvalho",
+      "tipo": "2",
+      "dataNascimento": "01/01/2001",
+      "email": "sscarvalho123@hotmail.com",
+      "senha": "12345678",
       "bio": "Trust me, I'm a programmer"
     }
   ]

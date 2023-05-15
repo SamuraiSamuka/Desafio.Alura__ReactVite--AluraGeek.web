@@ -14,6 +14,7 @@ import Erro404 from './Components/Erro404'
 import PaginaRecuperarSenha from './Pages/PaginaRecuperarSenha'
 import PaginaTodosProdutos, {loader as todosProdutosLoader} from './Pages/PaginaTodosProdutos'
 import { action as destroyAction } from "./Pages/destroy.jsx"
+import { UsuarioProvider } from './common/Usuario/Usuario'
 
 const router = createBrowserRouter([
   {
@@ -72,6 +73,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <UsuarioProvider>
+      <RouterProvider router={router} />
+    </UsuarioProvider>
   </React.StrictMode>
 )

@@ -39,12 +39,8 @@ body {
 }
 
 .container {
-  padding: 16px 3% 
+  padding: 16px 3%;
 }
-
-/* .dont-show {
-  display: none;
-} */
 
 .loading {
   opacity: 0.5;

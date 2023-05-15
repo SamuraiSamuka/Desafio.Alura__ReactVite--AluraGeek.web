@@ -2,17 +2,17 @@ import './Login.css'
 import Formulario from '../Formulario';
 import CampoInput from '../CampoInput';
 import Botao from '../Botao';
-import {useState} from 'react';
 import {Form, Link} from 'react-router-dom';
+import { UsuarioContext } from '../../common/Usuario/Usuario';
+import { useContext } from 'react';
 
 const Login = ({aoLogar}) => {
-
-    const [email, setEmail] = useState('')
-    const [senha, setSenha] = useState('')
+    const { email, setEmail, senha, setSenha, verificaUsuario } = useContext(UsuarioContext);
 
     function aoSubmeter(evento) {
         evento.preventDefault()
-        let resposta = aoLogar({email: email, senha: senha})
+        // let resposta = aoLogar({email: email, senha: senha})
+        let resposta = verificaUsuario(email, senha)
         alert(resposta)
     }
 
@@ -30,18 +30,23 @@ const Login = ({aoLogar}) => {
 
     return (
         <div className='formulario-container container'>
-            <Formulario titulo="Iniciar Sessão"
-                onsubmit={aoSubmeter}>
-                <Form method='post'>
-                    <CampoInput type="email"
+            <Formulario 
+                titulo="Iniciar Sessão"
+            >
+                <Form method='post' onSubmit={aoSubmeter}>
+                    <CampoInput 
+                        type="email"
                         aoAlterado={
                             evento => {
                                 setEmail(evento.target.value)
                             }
                         }
                         valor={email}
-                        required>E-mail</CampoInput>
-                    <CampoInput type="password" icone="visibility"
+                        required
+                    >E-mail</CampoInput>
+                    <CampoInput 
+                        type="password" 
+                        icone="visibility"
                         comportamentoIcone={mostrarEsconderSenha}
                         aoAlterado={
                             evento => {
@@ -50,8 +55,9 @@ const Login = ({aoLogar}) => {
                         }
                         valor={senha}
                         minimo={6}
-                        required>Senha</CampoInput>
-                    <Botao>Entrar</Botao>
+                        required
+                    >Senha</CampoInput>
+                    <Botao type="submit">Entrar</Botao>
                 </Form>
                 <div className='login-links'>
                     <Link to="/cadastrousuario" className='login-link'>Criar conta</Link>
