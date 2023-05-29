@@ -29,7 +29,7 @@ export async function getUsuarios(query){
     let usuarios = await localforage.getItem("usuarios");
     if (!usuarios) usuarios = [];
     if (query) {
-        usuarios = matchSorter(usuarios, query, { keys: ["first, last"]})
+        usuarios = matchSorter(usuarios, query, { keys: ['email', 'nome', 'sobrenome', 'dataNascimento', 'tipo']})
     }
     return usuarios
 }

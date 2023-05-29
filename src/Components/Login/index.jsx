@@ -2,18 +2,21 @@ import './Login.css'
 import Formulario from '../Formulario';
 import CampoInput from '../CampoInput';
 import Botao from '../Botao';
-import {Form, Link} from 'react-router-dom';
+import {Form, Link, redirect, useNavigate, useSubmit} from 'react-router-dom';
 import { UsuarioContext } from '../../common/Usuario/Usuario';
 import { useContext } from 'react';
 
 const Login = ({aoLogar}) => {
     const { email, setEmail, senha, setSenha, verificaUsuario } = useContext(UsuarioContext);
+    const navigate = useNavigate();
 
-    function aoSubmeter(evento) {
+    async function aoSubmeter(evento) {
         evento.preventDefault()
         // let resposta = aoLogar({email: email, senha: senha})
-        let resposta = verificaUsuario(email, senha)
-        alert(resposta)
+        let resposta = await verificaUsuario(email, senha)
+        if(resposta.logado) {
+            navigate('/');
+        }
     }
 
     function mostrarEsconderSenha(evento) {
@@ -26,6 +29,9 @@ const Login = ({aoLogar}) => {
             campoInput.type = "password"
             icone.style.color = "#aaaaaa"
         }
+    }
+
+    async function teste(){
     }
 
     return (

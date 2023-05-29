@@ -57,7 +57,6 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <PaginaLogin />
-        
       },
       {
         path: "/recuperarsenha",
