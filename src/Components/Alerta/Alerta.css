@@ -1,0 +1,17 @@
+.alerta-container {
+    z-index: 100;
+    position: fixed;
+    top: 70px;
+    right: -3px;
+    
+    padding: 18px;
+    min-width: 200px;
+
+    background-color: var(--azul-20);
+    border-radius: 10px 0 0 10px;
+    filter: drop-shadow(0 4px 0.3rem gray);
+
+    text-align: center;
+    font-weight: 600;
+    color: var(--preto-90);
+}

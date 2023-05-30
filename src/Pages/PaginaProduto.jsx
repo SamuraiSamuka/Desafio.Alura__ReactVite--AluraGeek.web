@@ -14,7 +14,8 @@ export default function PaginaProduto() {
   return (
     <>
     <main className="principal">
-    <ProdutoDetalhado 
+    <ProdutoDetalhado
+        produto={produto}
         nome={produto.nome}
         preco={produto.preco}
         descricao={produto.descricao}

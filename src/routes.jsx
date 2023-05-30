@@ -15,6 +15,8 @@ import PaginaRecuperarSenha from './Pages/PaginaRecuperarSenha'
 import PaginaTodosProdutos, {loader as todosProdutosLoader} from './Pages/PaginaTodosProdutos'
 import { action as destroyAction } from "./Pages/destroy.jsx"
 import { UsuarioProvider } from './common/Usuario/Usuario'
+import { CarrinhoProvider } from './common/Carrinho'
+import PaginaPerfil from './Pages/PaginaPerfil'
 
 const router = createBrowserRouter([
   {
@@ -63,8 +65,8 @@ const router = createBrowserRouter([
         element: <PaginaRecuperarSenha />
       },
       {
-        path: "/teste",
-        element: <h1>Hello there!</h1>
+        path: "/perfil",
+        element: <PaginaPerfil />
       }
     ]
   }
@@ -72,8 +74,10 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <UsuarioProvider>
-      <RouterProvider router={router} />
-    </UsuarioProvider>
+    <CarrinhoProvider>
+      <UsuarioProvider>
+        <RouterProvider router={router} />
+      </UsuarioProvider>
+    </CarrinhoProvider>
   </React.StrictMode>
 )

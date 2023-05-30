@@ -12,8 +12,8 @@ const Cabecalho = ({produtos}) => {
             <Logo />
             <div className='caixa-busca-container'>
                 <CaixaDeBusca produtos={produtos}/>
-                <span onClick={'mostrarCaixaBusca'} id="lupa" className="icone__lupa-mobile material-symbols-outlined">search</span>
-                <span onClick={'esconderCaixaBusca'} id="close" className="icone__close-mobile material-symbols-outlined">close</span>
+                <span id="lupa" className="icone__lupa-mobile material-symbols-outlined">search</span>
+                <span id="close" className="icone__close-mobile material-symbols-outlined">close</span>
             </div>
             {usuario.nome? 
                 "" : 
@@ -31,7 +31,7 @@ const Cabecalho = ({produtos}) => {
                 : ""}
                 <div className="carrinho-container">
                     <span className="carrinho__icone material-symbols-outlined">shopping_cart</span>
-                    <span className='carrinho__contador'></span>
+                    <span className='carrinho__contador'>{}</span>
                 </div>
             </div>
 

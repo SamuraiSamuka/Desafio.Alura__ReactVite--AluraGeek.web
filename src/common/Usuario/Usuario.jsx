@@ -1,11 +1,11 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { getUsuarios } from "../../API/usuarios";
 
 export const UsuarioContext = createContext();
 UsuarioContext.displayName = 'Usuário';
 
 export function UsuarioProvider ({ children }) {
-    const [usuario, setUsuario] = useState({})
+    const [usuario, setUsuario] = useState(JSON.parse(localStorage.getItem('usuarioLogado')) || {})
     const [email, setEmail] = useState('')
     const [senha, setSenha] = useState('')
 
@@ -22,6 +22,7 @@ export function UsuarioProvider ({ children }) {
         } 
         
         if (validado) {
+            localStorage.setItem('usuarioLogado', JSON.stringify(usuarioAtual))
             setUsuario(usuarioAtual)
             return {
                 logado: true, 
@@ -37,7 +38,10 @@ export function UsuarioProvider ({ children }) {
 
     async function deslogar(){
         setUsuario({})
+        localStorage.setItem('usuarioLogado', JSON.stringify({}))
     }
+
+    // localStorage.setItem('usuarioLogado', JSON.stringify(usuario))
 
     return (
         <UsuarioContext.Provider value={{usuario, setUsuario, email, setEmail, senha, setSenha, verificaUsuario, deslogar}}>
