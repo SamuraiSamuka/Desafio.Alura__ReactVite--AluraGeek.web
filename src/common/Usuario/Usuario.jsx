@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { getUsuarios } from "../../API/usuarios";
+import { getUsuarios, getUsuariosByEmail } from "../../API/usuarios";
 
 export const UsuarioContext = createContext();
 UsuarioContext.displayName = 'Usuário';
@@ -10,9 +10,8 @@ export function UsuarioProvider ({ children }) {
     const [senha, setSenha] = useState('')
 
     async function verificaUsuario(email, senha) {
-        const usuarioAtual = (await getUsuarios(email))[0]
+        const usuarioAtual = (await getUsuariosByEmail(email))[0]
         const validado = usuarioAtual.senha === senha
-        console.log(usuarioAtual)
 
         if(!usuarioAtual) { 
             return {

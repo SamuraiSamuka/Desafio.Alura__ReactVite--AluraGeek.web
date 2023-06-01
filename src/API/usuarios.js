@@ -2,10 +2,13 @@ import localforage from "localforage";
 import { matchSorter } from "match-sorter";
 import { v4 as uuidv4 } from 'uuid';
 
-export async function createUsuario({nome, tipo, dataNascimento, email, senha, bio}) {
+export async function createUsuario({nomeCompleto, tipo, dataNascimento, email, senha, bio}) {
+    let [nome, ...sobrenome] = nomeCompleto.split(" ")
+
     let usuario = { 
         id: uuidv4(),
         nome: nome,
+        sobrenome: sobrenome.join(" "),
         tipo: tipo,
         dataNascimento: Date(dataNascimento),
         email: email,
@@ -29,7 +32,16 @@ export async function getUsuarios(query){
     let usuarios = await localforage.getItem("usuarios");
     if (!usuarios) usuarios = [];
     if (query) {
-        usuarios = matchSorter(usuarios, query, { keys: ['email', 'nome', 'sobrenome', 'dataNascimento', 'tipo']})
+        usuarios = matchSorter(usuarios, query, { keys: ['email', 'nome', 'sobrenome', 'dataNascimento', 'tipo'], threshold: matchSorter.rankings.MATCHES})
+    }
+    return usuarios
+}
+
+export async function getUsuariosByEmail(query){
+    let usuarios = await localforage.getItem('usuarios');
+    if(!usuarios) usuarios = []
+    if(query) {
+        usuarios = matchSorter(usuarios, query, { keys: ['email'], threshold: matchSorter.rankings.EQUAL })
     }
     return usuarios
 }

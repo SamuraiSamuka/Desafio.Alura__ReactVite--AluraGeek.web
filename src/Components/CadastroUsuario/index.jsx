@@ -4,8 +4,9 @@ import CampoInput from '../CampoInput'
 import Formulario from '../Formulario'
 import './CadastroUsuario.css'
 import { Form } from 'react-router-dom'
+import { getUsuariosByEmail } from '../../API/usuarios'
 
-const CadastroUsuario = ({emailsCadastrados}) => {
+const CadastroUsuario = () => {
 
     const [nomeUsuario, setNomeUsuario] = useState('')
     const [tipoUsuario, setTipoUsuario] = useState('')
@@ -28,13 +29,15 @@ const CadastroUsuario = ({emailsCadastrados}) => {
         verificaSeValido(evento, "Não é maior de idade")
     }
 
-    function verificaEmail(evento, verificaSeValido) {
-        const campo = evento.target
-        const jaCadastrado = emailsCadastrados.find(emailCadastrado => emailCadastrado === emailUsuario? true : false)
-        if (jaCadastrado) 
-            {campo.setCustomValidity("Este e-mail já está cadastrado em nossa base de dados.")}
-        else {campo.setCustomValidity('')}
-        verificaSeValido(evento, "E-mail já utilizado.")
+    async function verificaEmail(evento, verificaSeValido) {
+        if(emailUsuario.length > 0) {
+            const campo = evento.target
+            const jaCadastrado = (await getUsuariosByEmail(emailUsuario)).length > 0
+            if (jaCadastrado) 
+                {campo.setCustomValidity("Este e-mail já está cadastrado em nossa base de dados.")}
+            else {campo.setCustomValidity('')}
+            verificaSeValido(evento, "E-mail já utilizado.")
+        }
     }
     
     function verificaSenha(evento, verificaSeValido){
@@ -75,7 +78,7 @@ const CadastroUsuario = ({emailsCadastrados}) => {
                 >Tipo de usuário:</CampoInput>
                 <CampoInput 
                     minimo="4" 
-                    name="nome"
+                    name="nomeCompleto"
                     aoAlterado={evento => {setNomeUsuario(evento.target.value)}}
                     valor={nomeUsuario}
                     required

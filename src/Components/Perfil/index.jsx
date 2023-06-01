@@ -2,6 +2,8 @@ import './Perfil.css'
 
 export default function Perfil () {
     return (
-        <div className="container"></div>
+        <div className="perfil-container container">
+            
+        </div>
     )
 }

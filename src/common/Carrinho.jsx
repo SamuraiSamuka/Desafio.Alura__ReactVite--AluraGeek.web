@@ -38,8 +38,8 @@ export function CarrinhoProvider ({children}) {
 
     useEffect(() => {
         const {novaQuantidade} = carrinho.reduce((contador, itemNoCarrinho) => ({
-            novaQuantidade: contador.quantidade += itemNoCarrinho.quantidade
-        }), {quantidade:0})
+            novaQuantidade: contador.novaQuantidade + itemNoCarrinho.quantidade
+        }), {novaQuantidade:0})
         setQuantidadeProdutos(novaQuantidade)
     },[carrinho, setQuantidadeProdutos])
 

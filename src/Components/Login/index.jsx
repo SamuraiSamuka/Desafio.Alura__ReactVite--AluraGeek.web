@@ -2,11 +2,11 @@ import './Login.css'
 import Formulario from '../Formulario';
 import CampoInput from '../CampoInput';
 import Botao from '../Botao';
-import {Form, Link, redirect, useNavigate, useSubmit} from 'react-router-dom';
+import {Form, Link, useNavigate} from 'react-router-dom';
 import { UsuarioContext } from '../../common/Usuario/Usuario';
 import { useContext } from 'react';
 
-const Login = ({aoLogar}) => {
+const Login = () => {
     const { email, setEmail, senha, setSenha, verificaUsuario } = useContext(UsuarioContext);
     const navigate = useNavigate();
 
@@ -29,9 +29,6 @@ const Login = ({aoLogar}) => {
             campoInput.type = "password"
             icone.style.color = "#aaaaaa"
         }
-    }
-
-    async function teste(){
     }
 
     return (

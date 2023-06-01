@@ -4,9 +4,11 @@ import CaixaDeBusca from '../CaixaBusca'
 import Logo from '../Logo'
 import './Cabecalho.css'
 import { UsuarioContext } from '../../common/Usuario/Usuario'
+import { CarrinhoContext } from '../../common/Carrinho'
 
 const Cabecalho = ({produtos}) => {
     const { usuario, deslogar } = useContext(UsuarioContext);
+    const { quantidadeProdutos } = useContext(CarrinhoContext)
     return (
         <div className='cabecalho container'>
             <Logo />
@@ -31,7 +33,7 @@ const Cabecalho = ({produtos}) => {
                 : ""}
                 <div className="carrinho-container">
                     <span className="carrinho__icone material-symbols-outlined">shopping_cart</span>
-                    <span className='carrinho__contador'>{}</span>
+                    <span className='carrinho__contador'>{quantidadeProdutos > 0 ? quantidadeProdutos : ""}</span>
                 </div>
             </div>
 

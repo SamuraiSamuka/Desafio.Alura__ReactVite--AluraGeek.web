@@ -7,7 +7,7 @@ import Root, {loader as rootLoader} from './Pages/Root.jsx'
 import PaginaProduto, {loader as produtoLoader} from './Pages/PaginaProduto.jsx'
 import PaginaInicial, {loader as inicioLoader} from './Pages/PaginaInicial'
 import PaginaCadastroProduto, {loader as cadastroProdutoLoader, action as cadastroProdutoAction} from './Pages/PaginaCadastroProduto'
-import PaginaCadastroUsuario, {loader as cadastroUsuarioLoader, action as cadastroUsuarioAction} from './Pages/PaginaCadastroUsuario'
+import PaginaCadastroUsuario, {action as cadastroUsuarioAction} from './Pages/PaginaCadastroUsuario'
 import PaginaLogin from './Pages/PaginaLogin'
 import PaginaErro404 from './Pages/PaginaErro404'
 import Erro404 from './Components/Erro404'
@@ -53,7 +53,6 @@ const router = createBrowserRouter([
       {
         path: "/cadastroUsuario",
         element: <PaginaCadastroUsuario />,
-        loader: cadastroUsuarioLoader,
         action: cadastroUsuarioAction,
       },
       {
@@ -66,7 +65,12 @@ const router = createBrowserRouter([
       },
       {
         path: "/perfil",
-        element: <PaginaPerfil />
+        element: <PaginaPerfil />,
+        children: [
+          {
+            path: "/perfil/alterarsenha"
+          }
+        ]
       }
     ]
   }
