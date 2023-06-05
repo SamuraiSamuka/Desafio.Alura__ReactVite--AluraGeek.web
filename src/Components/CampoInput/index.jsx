@@ -2,7 +2,7 @@ import './CampoInput.css'
 import Botao from '../Botao'
 import { useState } from 'react'
 
-const CampoInput = ({id, type, name, children, valor, minimo, maximo, required, validacaoCustomizada, aoAlterado, opcoesLista, addOpcao, icone, comportamentoIcone}) => {
+const CampoInput = ({id, type, name, children, valor, minimo, maximo, required, validacaoCustomizada, aoAlterado, opcoesLista = [], addOpcao, icone, comportamentoIcone}) => {
     const [opcoes, setOpcoes] = useState(opcoesLista)
 
     function verificaSeValido (evento, mensagemErroCustomizada) {
@@ -89,10 +89,10 @@ const CampoInput = ({id, type, name, children, valor, minimo, maximo, required, 
                     : ''
                     }
                 </div>
-                <div id="campoAddOpcao" className='campo-selecao-addOpcao dont-show'>
+                {/* <div id="campoAddOpcao" className='campo-selecao-addOpcao dont-show'>
                     <CampoInput >Digite a nova categoria</CampoInput>
                     <Botao type="button" aparencia='cinza' comportamento={()=>{salvaOpcao()}}><span className="material-symbols-outlined campo-selecao__adicionar-opcao">done</span></Botao>
-                </div>
+                </div> */}
             </div>
 
 

@@ -90,12 +90,12 @@
 }
 
 
-/* carrinho */
-.carrinho-container {
+/* cab-carrinho */
+.cab-carrinho-container {
     position: relative;
 }
 
-.carrinho__contador {
+.cab-carrinho__contador {
     display: flex;
     background-color: var(--azul-80);
     border-radius: 10px;
@@ -110,7 +110,7 @@
     right: -15px;
 }
 
-.carrinho__contador:empty {
+.cab-carrinho__contador:empty {
     display: none;
 }
 

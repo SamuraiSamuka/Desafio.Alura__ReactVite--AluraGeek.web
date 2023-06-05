@@ -5,8 +5,6 @@ import { createUsuario} from "../API/usuarios";
 export async function action({request}){
     const formData = await request.formData()
     const dados = Object.fromEntries(formData)
-    console.log("Estou no action da página cadastroUsuario")
-    console.log(dados)
     const usuario = await createUsuario(dados)
     return redirect("/login")
 }

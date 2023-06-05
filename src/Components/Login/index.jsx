@@ -3,7 +3,7 @@ import Formulario from '../Formulario';
 import CampoInput from '../CampoInput';
 import Botao from '../Botao';
 import {Form, Link, useNavigate} from 'react-router-dom';
-import { UsuarioContext } from '../../common/Usuario/Usuario';
+import { UsuarioContext } from '../../common/Usuario';
 import { useContext } from 'react';
 
 const Login = () => {
@@ -39,6 +39,7 @@ const Login = () => {
                 <Form method='post' onSubmit={aoSubmeter}>
                     <CampoInput 
                         type="email"
+                        name="email"
                         aoAlterado={
                             evento => {
                                 setEmail(evento.target.value)
@@ -49,6 +50,7 @@ const Login = () => {
                     >E-mail</CampoInput>
                     <CampoInput 
                         type="password" 
+                        name="senha"
                         icone="visibility"
                         comportamentoIcone={mostrarEsconderSenha}
                         aoAlterado={

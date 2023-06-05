@@ -46,6 +46,21 @@ body {
   opacity: 0.5;
 }
 
+h2 {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+h4 {
+  font-size: 16px;
+  font-weight: 500;
+}
+
 @media screen and (min-width: 385px) {
   .container {
       padding: 16px 5% 
@@ -63,6 +78,11 @@ body {
   .container {
     padding: 16px calc((100% - 620px)/2);
   }
+
+  h4 {
+    font-size: 18px;
+    font-weight: 600;
+  }
 }
 
 @media screen and (min-width: 1020px) {
@@ -70,12 +90,32 @@ body {
   .container {
       padding: 16px calc((100% - 830px)/2);
   }
+
+  h2 {
+    font-size: 27px;
+  }
+  
+  h3 {
+    font-size: 22px;
+  }
 }
 
 @media screen and (min-width: 1400px) {
   /* ~8% 205 */
   .container {
       padding: 16px calc((100% - 1040px)/2);
+  }
+
+  h2 {
+    font-size: 32px;
+  }
+
+  h3 {
+    font-size: 24px;
+  }
+
+  h4 {
+    font-size: 20px;
   }
 }
 

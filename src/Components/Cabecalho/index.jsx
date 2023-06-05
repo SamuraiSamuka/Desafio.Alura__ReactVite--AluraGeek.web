@@ -3,7 +3,7 @@ import Botao from '../Botao'
 import CaixaDeBusca from '../CaixaBusca'
 import Logo from '../Logo'
 import './Cabecalho.css'
-import { UsuarioContext } from '../../common/Usuario/Usuario'
+import { UsuarioContext } from '../../common/Usuario'
 import { CarrinhoContext } from '../../common/Carrinho'
 
 const Cabecalho = ({produtos}) => {
@@ -31,9 +31,9 @@ const Cabecalho = ({produtos}) => {
                     <span className="perfil__logout material-symbols-outlined" onClick={deslogar}>logout</span>
                 </div>
                 : ""}
-                <div className="carrinho-container">
-                    <span className="carrinho__icone material-symbols-outlined">shopping_cart</span>
-                    <span className='carrinho__contador'>{quantidadeProdutos > 0 ? quantidadeProdutos : ""}</span>
+                <div className="cab-carrinho-container">
+                    <span className="cab-carrinho__icone material-symbols-outlined">shopping_cart</span>
+                    <span className='cab-carrinho__contador'>{quantidadeProdutos > 0 ? quantidadeProdutos : ""}</span>
                 </div>
             </div>
 

@@ -1,0 +1,134 @@
+.carrinho-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    min-height: 450px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.carrinho {
+    display: flex;
+    flex-direction: column;
+    
+    max-width: 100%;
+    width: 600px;
+    margin: 0 auto;
+    gap: 25px;
+    box-sizing: border-box;
+    
+    justify-content: center;
+    border: 1px solid #e1e1e1;
+    border-radius: 20px;
+    padding: 25px;
+    background-color: #f8f8f8;
+}
+
+.carrinho__itens {
+    display: grid;
+    gap: 8px;
+}
+
+
+.carrinho-resumo {
+    display: grid;
+    gap: 10px;
+    box-sizing: border-box;
+    width: 400px;
+    max-width: 100%;
+    min-width: 300px;
+    height: fit-content;
+    padding: 15px;
+    margin: 0 auto;
+
+    border: 1px solid lightgray;
+    border-radius: 15px;
+    background: #f8f8f8;
+}
+
+.carrinho-resumo .botao {
+    justify-self: center;
+    width: 100%;
+}
+
+.carrinho__total {
+    text-align: right;
+    /* font-size: 20px; */
+}
+
+
+
+
+
+.item-carrinho {
+    display: flex;
+    width: 100%;
+    max-width: 600px;
+    border: 1px solid #0002;
+    justify-content: space-between;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+.item__imagem {
+    width: 80px;
+    border-radius: 10px;
+}
+
+.item__info {
+    display: flex;
+}
+
+.item__texto {
+    padding: 10px;
+}
+
+/* Botões */
+.item__botoes {
+    display: flex;
+    align-items: center;
+}
+
+.item__botao {
+    height: 100%;
+    width: 35px;
+    font-size: 28px;
+    font-weight: 300;
+}
+
+.item__botao:hover {
+    cursor: pointer;
+}
+
+.item__botao-add {
+    background-color: #e6efff;
+    color: var(--azul-100);
+}
+
+.item__botao-remove {
+    background-color: #ffe8e8;
+    color: #ff3838;
+    border-radius: 0 10px 10px 0;
+}
+
+.item__quantidade {
+    margin: 10px;
+    min-width: 15px;
+    text-align: center;
+}
+
+@media screen and (min-width: 1020px) {
+    .carrinho {
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-evenly;
+    }
+
+    .carrinho__itens {
+        width: 100%;
+    }
+
+    .carrinho-resumo {
+        width: fit-content;
+    }
+}
