@@ -25,6 +25,7 @@ export default function PaginaCarrinho() {
             <ItemCarrinho nome={nome} preco={preco} imagemSrc={imagem_src} quantidade={1}/>
             <ItemCarrinho nome={nome} preco={preco} imagemSrc={imagem_src} quantidade={1}/>
           </div>
+          <hr className='carrinho__divisoria'/>
           <div className="carrinho-resumo">
             <h3 className="carrinho-resumo__titulo">Resumo</h3>
             <h4 className='carrinho__total'>Total R$ 20,00</h4>

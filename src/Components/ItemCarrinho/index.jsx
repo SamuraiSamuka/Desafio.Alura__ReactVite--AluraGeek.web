@@ -8,8 +8,8 @@ export default function ItemCarrinho({nome, preco, imagemSrc, quantidade}) {
         <div className="item__info">
           <img src={imagemSrc} alt="" className="item__imagem" />
           <div className="item__texto">
-            <h4>{nome}</h4>
-            <h5>R$ {preco * quantidade}</h5>
+            <h4 className='item__titulo'>{nome}</h4>
+            <h5 className='item__preco'>R$ {preco * quantidade}</h5>
           </div>
         </div>
         <div className="item__botoes">

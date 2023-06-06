@@ -1,10 +1,12 @@
 .carrinho-container {
     display: flex;
     flex-direction: column;
-    gap: 30px;
-    min-height: 450px;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    gap: 20px;
+    min-height: 400px;
+}
+
+.carrinho__titulo {
+    margin-top: 10px;
 }
 
 .carrinho {
@@ -13,7 +15,7 @@
     
     max-width: 100%;
     width: 600px;
-    margin: 0 auto;
+    margin: 0 auto 20px;
     gap: 25px;
     box-sizing: border-box;
     
@@ -29,6 +31,11 @@
     gap: 8px;
 }
 
+.carrinho__divisoria {
+    border: 1px dashed lightgray;
+    width: 90%;
+    margin: 0 auto;
+}
 
 .carrinho-resumo {
     display: grid;
@@ -43,7 +50,7 @@
 
     border: 1px solid lightgray;
     border-radius: 15px;
-    background: #f8f8f8;
+    background: #fbfbfb;
 }
 
 .carrinho-resumo .botao {
@@ -63,25 +70,43 @@
 .item-carrinho {
     display: flex;
     width: 100%;
-    max-width: 600px;
     border: 1px solid #0002;
     justify-content: space-between;
     border-radius: 10px;
     background-color: #f9f9f9;
+    filter: drop-shadow(0 3px 3px lightgray);
 }
 
-.item__imagem {
-    width: 80px;
-    border-radius: 10px;
+.item-carrinho:hover {
+    transform: scale(1.015, 1.015);
+    transition: .1s;
 }
 
 .item__info {
     display: flex;
 }
 
-.item__texto {
-    padding: 10px;
+.item__imagem {
+    width: 70px;
+    border-radius: 10px;
 }
+
+.item__texto {
+    padding: 10px 7px;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-between; */
+}
+
+.item__titulo {
+    margin-bottom: 5px;
+}
+
+.item__preco {
+ /* text-align: right; */
+}
+
+
 
 /* Botões */
 .item__botoes {
@@ -113,22 +138,38 @@
 
 .item__quantidade {
     margin: 10px;
-    min-width: 15px;
+    min-width: 10px;
     text-align: center;
 }
 
 @media screen and (min-width: 1020px) {
+    .carrinho-container {
+        gap: 30px;
+    }
+    
+    .carrinho__titulo {
+        margin-top: 10px;
+    }
+
     .carrinho {
         flex-direction: row;
         width: 100%;
         justify-content: space-evenly;
     }
 
+    .carrinho__divisoria {
+        width: auto;
+    }
+
     .carrinho__itens {
-        width: 100%;
+        width: 60%;
     }
 
     .carrinho-resumo {
         width: fit-content;
+    }
+
+    .item-carrinho {
+        max-width: 600px;
     }
 }
