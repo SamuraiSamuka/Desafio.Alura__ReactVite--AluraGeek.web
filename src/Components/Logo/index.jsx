@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import './Logo.css'
-import logo from './logo.svg'
+import logo from './SamukaGeek.svg'
 
 const Logo = () => {
 

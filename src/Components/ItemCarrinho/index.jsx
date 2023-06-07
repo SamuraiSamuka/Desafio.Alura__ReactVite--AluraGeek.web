@@ -1,12 +1,15 @@
 import { useEffect, useState } from 'react'
 import './ItemCarrinho.css'
+import { Link } from 'react-router-dom'
 
-export default function ItemCarrinho({nome, preco, imagemSrc, quantidade}) {
+export default function ItemCarrinho({nome, preco, imagemSrc, quantidade, id}) {
   const [contador, setContador] = useState(quantidade)
   return (
     <div className="item-carrinho">
         <div className="item__info">
-          <img src={imagemSrc} alt="" className="item__imagem" />
+          <Link to={`/produtos/${id}`}>
+            <img src={imagemSrc} alt="" className="item__imagem" />
+          </Link>
           <div className="item__texto">
             <h4 className='item__titulo'>{nome}</h4>
             <h5 className='item__preco'>R$ {preco * quantidade}</h5>

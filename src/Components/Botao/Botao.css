@@ -28,6 +28,10 @@
     transition: .1s;
 }
 
+.botao-pressionado {
+    color: var(--preto-100);
+}
+
 .botao--transparente {
     border: solid 1px var(--azul-100);
     color: var(--azul-100);

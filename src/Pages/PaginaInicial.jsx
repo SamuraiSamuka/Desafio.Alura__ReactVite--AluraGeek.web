@@ -1,6 +1,6 @@
 import Banner from "../Components/Banner"
 import SecaoProduto from "../Components/SecaoProduto"
-import { useLoaderData } from "react-router-dom";
+import { redirect, useLoaderData } from "react-router-dom";
 import { getProdutos } from "../API/produtos";
 
 export async function loader() {
@@ -9,6 +9,7 @@ export async function loader() {
 }
 
 export default function PaginaInicial() {
+    redirect("/")
     const { produtos } = useLoaderData()
     return (
       <>

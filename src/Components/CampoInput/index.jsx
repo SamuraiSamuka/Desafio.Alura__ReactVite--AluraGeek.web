@@ -84,15 +84,11 @@ const CampoInput = ({id, type, name, children, valor, minimo, maximo, required, 
                         <span className="material-symbols-outlined campo__erro__icone">error</span>
                         <span className='campo__erro'></span>
                     </div>
-                    {addOpcao === "true" ?
+                    {/* {addOpcao === "true" ?
                         <Botao type="button" aparencia='cinza' comportamento={(evento) => {mostraCampoAddOpcao()}}><span className="material-symbols-outlined campo-selecao__adicionar-opcao">add</span></Botao>
                     : ''
-                    }
+                    } */}
                 </div>
-                {/* <div id="campoAddOpcao" className='campo-selecao-addOpcao dont-show'>
-                    <CampoInput >Digite a nova categoria</CampoInput>
-                    <Botao type="button" aparencia='cinza' comportamento={()=>{salvaOpcao()}}><span className="material-symbols-outlined campo-selecao__adicionar-opcao">done</span></Botao>
-                </div> */}
             </div>
 
 

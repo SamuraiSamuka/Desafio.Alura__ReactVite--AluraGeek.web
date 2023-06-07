@@ -9,12 +9,14 @@ const Produto = ({source, name, price, id, admin}) => {
 
     return (
         <div className='product'>
+            <Link to={`/produtos/${id}`}>
             <img className='product__image' alt="" src={source}/>
             <div className='product__info'>
                 <p className='product__title'>{name}</p>
                 <p className='product__price'>{aplicaPatternRealBra(price)}</p>
-                <Link className='product__link' to={`/produtos/${id}`}>Ver produto</Link>
+                <p className='product__link'>Ver produto</p>
             </div>
+            </Link>
                 {admin?
                 <>
                 {/* <Form action="edit">
