@@ -5,6 +5,7 @@ import Logo from '../Logo'
 import './Cabecalho.css'
 import { UsuarioContext } from '../../common/Usuario'
 import { CarrinhoContext } from '../../common/Carrinho'
+import { NavLink } from 'react-router-dom'
 
 const Cabecalho = ({produtos}) => {
     const { usuario, deslogar } = useContext(UsuarioContext);
@@ -32,8 +33,10 @@ const Cabecalho = ({produtos}) => {
                 </div>
                 : ""}
                 <div className="cab-carrinho-container">
-                    <span className="cab-carrinho__icone material-symbols-outlined">shopping_cart</span>
-                    <span className='cab-carrinho__contador'>{quantidadeProdutos > 0 ? quantidadeProdutos : ""}</span>
+                    <NavLink to="/carrinho">
+                        <span className="cab-carrinho__icone material-symbols-outlined">shopping_cart</span>
+                    </NavLink>
+                        <span className='cab-carrinho__contador'>{quantidadeProdutos > 0 ? quantidadeProdutos : ""}</span>
                 </div>
             </div>
 

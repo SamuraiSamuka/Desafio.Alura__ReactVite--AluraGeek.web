@@ -1,29 +1,32 @@
 import React, { useContext } from 'react'
 import ItemCarrinho from '../Components/ItemCarrinho'
 import { getProdutos } from '../API/produtos'
-import { useLoaderData } from 'react-router-dom'
+import { NavLink, useLoaderData } from 'react-router-dom'
 import { CarrinhoContext } from '../common/Carrinho'
 import Botao from '../Components/Botao'
 import CampoInput from '../Components/CampoInput'
 
-export async function loader(){
-  let produtos = await getProdutos()
-  return { produtos }
-}
-
 export default function PaginaCarrinho() {
-  const { produtos } = useLoaderData();
-  const { nome, imagem_src, preco } = produtos[0]
   const { carrinho } = useContext(CarrinhoContext)
   return (
     <main className="principal">
       <div className="carrinho-container container">
-        <h2 className="carrinho__titulo">Carrinho</h2>
+        <div className="carrinho-cabecalho">
+          <NavLink to={-1}><span className='carrinho__seta-back material-symbols-outlined'>arrow_back</span></NavLink>
+          <h2 className="carrinho__titulo">Carrinho</h2>
+        </div>
         <div className="carrinho">
           <div className="carrinho__itens">
-            <ItemCarrinho nome={nome} preco={preco} imagemSrc={imagem_src} quantidade={1}/>
-            <ItemCarrinho nome={nome} preco={preco} imagemSrc={imagem_src} quantidade={1}/>
-            <ItemCarrinho nome={nome} preco={preco} imagemSrc={imagem_src} quantidade={1}/>
+            {
+              carrinho.length === 0 ?
+              <p className='carrinho__mensagem-vazio'>O carrinho está vazio</p>
+              :
+              carrinho.map((item)=> {
+                return (
+                  <ItemCarrinho nome={item.nome} preco={item.preco} imagemSrc={item.imagem_src} quantidade={item.quantidade}/>
+                )
+              })
+            }
           </div>
           <hr className='carrinho__divisoria'/>
           <div className="carrinho-resumo">

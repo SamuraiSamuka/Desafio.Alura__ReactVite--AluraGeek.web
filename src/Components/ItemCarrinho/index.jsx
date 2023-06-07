@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './ItemCarrinho.css'
 
 export default function ItemCarrinho({nome, preco, imagemSrc, quantidade}) {

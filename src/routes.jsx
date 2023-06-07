@@ -17,7 +17,7 @@ import { action as destroyAction } from "./Pages/destroy.jsx"
 import { UsuarioProvider } from './common/Usuario'
 import { CarrinhoProvider } from './common/Carrinho'
 import PaginaPerfil from './Pages/PaginaPerfil'
-import PaginaCarrinho, { loader as carrinhoLoader } from './Pages/PaginaCarrinho'
+import PaginaCarrinho from './Pages/PaginaCarrinho'
 
 const router = createBrowserRouter([
   {
@@ -76,8 +76,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/carrinho',
-        element: <PaginaCarrinho />,
-        loader: carrinhoLoader
+        element: <PaginaCarrinho />
       }
     ]
   }
