@@ -7,7 +7,7 @@ import Botao from '../Components/Botao'
 import CampoInput from '../Components/CampoInput'
 
 export default function PaginaCarrinho() {
-  const { carrinho } = useContext(CarrinhoContext)
+  const { carrinho, totalCarrinho } = useContext(CarrinhoContext)
   const [formaPagamento, setFormaPagamento] = useState("")
   return (
     <main className="principal">
@@ -24,7 +24,7 @@ export default function PaginaCarrinho() {
               :
               carrinho.map((item)=> {
                 return (
-                  <ItemCarrinho key={item.id} id={item.id} nome={item.nome} preco={item.preco} imagemSrc={item.imagem_src} quantidade={item.quantidade}/>
+                  <ItemCarrinho key={item.id} item={item}/>
                 )
               })
             }
@@ -35,10 +35,10 @@ export default function PaginaCarrinho() {
             <CampoInput type="select" opcoesLista={["Cartão de crédito", "Cartão de débito", "Pix", "Boleto"]} valor={formaPagamento} aoAlterado={(e) => {setFormaPagamento(e.target.value)}}>Forma de pagamento</CampoInput>
             {
               formaPagamento === 'Cartão de crédito'?
-              <CampoInput type="select" opcoesLista={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]}>Parcelas</CampoInput>
+              <CampoInput type="select" opcoesLista={["1x sem juros", "2x sem juros", "3x sem juros", "4x sem juros", "5x sem juros", "6x sem juros", "7x sem juros", "8x sem juros", "9x sem juros", "10x sem juros", "11x sem juros", "12x sem juros"]}>Parcelas</CampoInput>
               : <p className='carrinho__forma-pagamento-parcela'>Pagamento à vista</p>
             }
-            <h4 className='carrinho__total'>Total R$ 20,00</h4>
+            <h4 className='carrinho__total'>Total R$ {totalCarrinho.toFixed(2)}</h4>
             <Botao>Finalizar pedido</Botao>
           </div>
         </div>
