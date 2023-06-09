@@ -1,7 +1,8 @@
 import './PedidoRealizado.css'
 import ImagemPedido from './PedidoFeito.gif'
 import { useEffect, useState } from 'react'
-import { useSubmit } from 'react-router-dom'
+import { 
+  useSubmit } from 'react-router-dom'
 
 export default function PedidoRealizado() {
   const [contador, setContador] = useState(5)

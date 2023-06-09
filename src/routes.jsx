@@ -11,7 +11,7 @@ import PaginaCadastroUsuario, {action as cadastroUsuarioAction} from './Pages/Pa
 import PaginaLogin from './Pages/PaginaLogin'
 import PaginaErro404 from './Pages/PaginaErro404'
 import Erro404 from './Components/Erro404'
-import PaginaRecuperarSenha from './Pages/PaginaRecuperarSenha'
+import PaginaRecuperarSenha, {action as recuperarSenhaAction} from './Pages/PaginaRecuperarSenha'
 import PaginaTodosProdutos, {loader as todosProdutosLoader} from './Pages/PaginaTodosProdutos'
 import { action as destroyAction } from "./Pages/destroy.jsx"
 import { UsuarioProvider } from './common/Usuario'
@@ -64,7 +64,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/recuperarsenha",
-        element: <PaginaRecuperarSenha />
+        element: <PaginaRecuperarSenha />,
+        action: recuperarSenhaAction
       },
       {
         path: "/perfil",
