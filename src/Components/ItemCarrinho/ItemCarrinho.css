@@ -43,6 +43,23 @@
     gap: 8px;
 }
 
+.carrinho-vazio {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.carrinho-vazio__icone {
+    font-size: 42px;
+}
+
+.carrinho-vazio__mensagem {
+    text-align: center;
+}
+
 .carrinho__divisoria {
     border: 1px dashed lightgray;
     width: 90%;
@@ -50,8 +67,6 @@
 }
 
 .carrinho-resumo {
-    display: grid;
-    gap: 10px;
     box-sizing: border-box;
     width: 400px;
     max-width: 100%;
@@ -63,6 +78,11 @@
     border: 1px solid lightgray;
     border-radius: 15px;
     background: #fbfbfb;
+}
+
+.carrinho-resumo__form {
+    display: grid;
+    gap: 10px;
 }
 
 .carrinho-resumo .botao {

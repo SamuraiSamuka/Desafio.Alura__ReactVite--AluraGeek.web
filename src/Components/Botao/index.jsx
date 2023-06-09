@@ -2,11 +2,14 @@ import { Link } from 'react-router-dom'
 import './Botao.css'
 import { useState } from 'react'
 
-const Botao = ({children, type, aparencia, link, onClick }) => {
+const Botao = ({children, type, aparencia, link, onClick, disabled }) => {
     let [classToggle, setClassToggle] = useState("");
+    disabled === "disabled" ? aparencia = "cinza" : aparencia
+
     function addToggleClass () {
         setClassToggle("botao-pressionado")
     }
+    
     function removeToggleClass() {
         setClassToggle("")
     }
@@ -19,6 +22,7 @@ const Botao = ({children, type, aparencia, link, onClick }) => {
                 onClick={onClick}
                 onMouseDown={addToggleClass}
                 onMouseUp={removeToggleClass}
+                disabled={disabled}
             >{children}</button>
 
         : aparencia === 'transparente'?

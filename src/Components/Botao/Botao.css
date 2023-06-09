@@ -45,7 +45,7 @@
 
 .botao--cinza {
     color: var(--preto-75);
-    background-color: var(--branco);
+    background-color: var(--preto-25);
 }
 
 .botao--cinza:hover {
