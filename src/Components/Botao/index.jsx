@@ -6,6 +6,8 @@ const Botao = ({children, type, aparencia, link, onClick, disabled }) => {
     let [classToggle, setClassToggle] = useState("");
     disabled === "disabled" ? aparencia = "cinza" : aparencia
 
+
+
     function addToggleClass () {
         setClassToggle("botao-pressionado")
     }
@@ -39,6 +41,7 @@ const Botao = ({children, type, aparencia, link, onClick, disabled }) => {
                 href={link}
                 className="botao botao--cinza" 
                 onClick={onClick}
+                disabled={disabled}
             >{children}</button>
             
         : ''

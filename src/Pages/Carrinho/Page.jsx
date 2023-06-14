@@ -38,7 +38,7 @@ export default function PaginaCarrinho() {
           </div>
           <hr className='carrinho__divisoria'/>
           <div className="carrinho-resumo">
-            <Form method='post' className='carrinho-resumo__form'>
+            <Form method='post' className='carrinho-resumo__form' onSubmit={limparCarrinho}>
             <h3 className="carrinho-resumo__titulo">Resumo</h3>
               <CampoInput 
                 type="select" 
@@ -62,7 +62,6 @@ export default function PaginaCarrinho() {
               <Botao
                 type="submit"
                 disabled={carrinho.length === 0? "disabled":""}
-                onClick={limparCarrinho}
               >Finalizar pedido</Botao>
             </Form>
           </div>

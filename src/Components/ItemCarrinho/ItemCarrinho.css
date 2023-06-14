@@ -17,21 +17,18 @@
 
 .item__info {
     display: flex;
-    
 }
 
 .item__imagem {
     width: 70px;
     height: 70px;
     object-fit: cover;
-    border-radius: 10px;
-    
+    border-radius: 10px;   
 }
 
 .item__texto {
     padding: 10px 7px;
     height: fit-content;
-    box-sizing: border-box;
 }
 
 .item__titulo {

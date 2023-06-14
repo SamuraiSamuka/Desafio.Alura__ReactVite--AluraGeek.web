@@ -16,9 +16,10 @@ import PaginaTodosProdutos, {loader as todosProdutosLoader} from './Pages/Pagina
 import { action as destroyAction } from "./Pages/destroy.jsx"
 import { UsuarioProvider } from './common/Usuario'
 import { CarrinhoProvider } from './common/Carrinho'
-import PaginaPerfil from './Pages/PaginaPerfil'
+import PaginaPerfil from './Pages/Conta/Page'
 import PaginaCarrinho, {action as PaginaCarrinhoAction} from './Pages/Carrinho/Page'
 import PedidoRealizado from './Pages/PedidoRealizado/Page'
+import PaginaConta from './Pages/Conta/Page'
 
 const router = createBrowserRouter([
   {
@@ -68,11 +69,11 @@ const router = createBrowserRouter([
         action: recuperarSenhaAction
       },
       {
-        path: "/perfil",
-        element: <PaginaPerfil />,
+        path: "/conta",
+        element: <PaginaConta />,
         children: [
           {
-            path: "/perfil/alterarsenha"
+            path: "/conta/alterarsenha"
           }
         ]
       },
