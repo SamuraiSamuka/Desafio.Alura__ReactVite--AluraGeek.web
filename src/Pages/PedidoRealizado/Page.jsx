@@ -1,20 +1,23 @@
 import './PedidoRealizado.css'
+import { useNavigate } from "react-router-dom"
 import ImagemPedido from './PedidoFeito.gif'
 import { useEffect, useState } from 'react'
-import { 
-  useSubmit } from 'react-router-dom'
 
-export default function PedidoRealizado() {
+export default function PaginaPedidoRealizado() {
   const [contador, setContador] = useState(5)
+  const navigate = useNavigate();
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setContador(previous => previous > 0 ? --previous
-                :previous === 0? useSubmit(): previous
-                )
+            setContador(prevCount => prevCount > 0 ? --prevCount : prevCount )
         }, 1000)
+
+        if(contador === 0){
+          navigate('/')
+        }
+
         return () => clearInterval(interval)
-    }, [])
+    }, [contador])
 
   return (
     <main className="principal">

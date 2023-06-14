@@ -37,6 +37,10 @@ export function CarrinhoProvider ({children}) {
         }
     }
 
+    function limparCarrinho() {
+        setCarrinho([])
+    }
+
     useEffect(() => {
         const {novaQuantidade, novoTotal} = carrinho.reduce((contador, itemNoCarrinho) => ({
             novaQuantidade: contador.novaQuantidade + itemNoCarrinho.quantidade,
@@ -47,7 +51,7 @@ export function CarrinhoProvider ({children}) {
     },[carrinho, setQuantidadeProdutos, setTotalCarrinho])
 
     return (
-        <CarrinhoContext.Provider value={{carrinho, setCarrinho, adicionarProduto, removerProduto, mudarQuantidade, quantidadeProdutos, totalCarrinho}}>
+        <CarrinhoContext.Provider value={{carrinho, setCarrinho, adicionarProduto, removerProduto, mudarQuantidade, quantidadeProdutos, totalCarrinho, limparCarrinho}}>
             {children}
         </CarrinhoContext.Provider>
     )

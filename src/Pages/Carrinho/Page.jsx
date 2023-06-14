@@ -1,16 +1,17 @@
+import './Carrinho.css'
 import React, { useContext, useState } from 'react'
-import ItemCarrinho from '../Components/ItemCarrinho'
+import ItemCarrinho from '../../Components/ItemCarrinho'
 import { Form, NavLink, redirect} from 'react-router-dom'
-import { CarrinhoContext } from '../common/Carrinho'
-import Botao from '../Components/Botao'
-import CampoInput from '../Components/CampoInput'
+import { CarrinhoContext } from '../../common/Carrinho'
+import Botao from '../../Components/Botao'
+import CampoInput from '../../Components/CampoInput'
 
 export async function action() {
   return redirect('/carrinho/pedidorealizado')
 }
 
 export default function PaginaCarrinho() {
-  const { carrinho, totalCarrinho } = useContext(CarrinhoContext)
+  const { carrinho, totalCarrinho, limparCarrinho } = useContext(CarrinhoContext)
   const [formaPagamento, setFormaPagamento] = useState("")
   return (
     <main className="principal">
@@ -61,6 +62,7 @@ export default function PaginaCarrinho() {
               <Botao
                 type="submit"
                 disabled={carrinho.length === 0? "disabled":""}
+                onClick={limparCarrinho}
               >Finalizar pedido</Botao>
             </Form>
           </div>
