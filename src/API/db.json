@@ -157,7 +157,8 @@
       "dataNascimento": "01/01/2001",
       "email": "samuel.carvalho.dev@gmail.com",
       "senha": "12345678",
-      "bio": "Trust me, I'm a programmer"
+      "bio": "Trust me, I'm a programmer",
+      "imagem_perfil": ""
     },
     {
       "id": 2,

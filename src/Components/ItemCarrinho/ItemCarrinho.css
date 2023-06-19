@@ -19,6 +19,10 @@
     display: flex;
 }
 
+.item__info a {
+    height: 70px;
+}
+
 .item__imagem {
     width: 70px;
     height: 70px;

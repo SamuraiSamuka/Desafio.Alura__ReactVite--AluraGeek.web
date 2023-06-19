@@ -1,8 +1,9 @@
 import './Carrinho.css'
 import React, { useContext, useState } from 'react'
 import ItemCarrinho from '../../Components/ItemCarrinho'
-import { Form, NavLink, redirect} from 'react-router-dom'
+import { Form, NavLink, redirect, useNavigate, useSubmit} from 'react-router-dom'
 import { CarrinhoContext } from '../../common/Carrinho'
+import { UsuarioContext } from '../../common/Usuario'
 import Botao from '../../Components/Botao'
 import CampoInput from '../../Components/CampoInput'
 
@@ -12,7 +13,25 @@ export async function action() {
 
 export default function PaginaCarrinho() {
   const { carrinho, totalCarrinho, limparCarrinho } = useContext(CarrinhoContext)
+  const { verificaSeLogado } = useContext(UsuarioContext)
   const [formaPagamento, setFormaPagamento] = useState("")
+  const navigate = useNavigate();
+  const submit = useSubmit();
+
+  function submeteOuRedireciona(event) {
+    const form = event.target.form
+    if(verificaSeLogado()){
+      if(form.checkValidity()) {
+        submit(form)
+        limparCarrinho()
+      } else {
+        form.reportValidity();
+      }
+    } else {
+      navigate('/login')
+    }
+  }
+
   return (
     <main className="principal">
       <div className="carrinho-container container">
@@ -38,7 +57,7 @@ export default function PaginaCarrinho() {
           </div>
           <hr className='carrinho__divisoria'/>
           <div className="carrinho-resumo">
-            <Form method='post' className='carrinho-resumo__form' onSubmit={limparCarrinho}>
+            <Form method='post' className='carrinho-resumo__form' >
             <h3 className="carrinho-resumo__titulo">Resumo</h3>
               <CampoInput 
                 type="select" 
@@ -60,7 +79,8 @@ export default function PaginaCarrinho() {
               }
               <h4 className='carrinho__total'>Total R$ {totalCarrinho.toFixed(2)}</h4>
               <Botao
-                type="submit"
+                type="button"
+                onClick={submeteOuRedireciona}
                 disabled={carrinho.length === 0? "disabled":""}
               >Finalizar pedido</Botao>
             </Form>

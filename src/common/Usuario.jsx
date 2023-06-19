@@ -12,7 +12,6 @@ export function UsuarioProvider ({ children }) {
     async function verificaUsuario(email, senha) {
         const usuarioAtual = (await getUsuariosByEmail(email))[0]
         const validado = usuarioAtual.senha === senha
-        console.log(usuarioAtual)
 
         if(!usuarioAtual) { 
             return {
@@ -36,15 +35,18 @@ export function UsuarioProvider ({ children }) {
         }
     }
 
+    function verificaSeLogado(){
+        const logado = Object.keys(usuario).length > 0 ? true : false
+        return logado
+    }
+
     async function deslogar(){
         setUsuario({})
         localStorage.setItem('usuarioLogado', JSON.stringify({}))
     }
 
-    // localStorage.setItem('usuarioLogado', JSON.stringify(usuario))
-
     return (
-        <UsuarioContext.Provider value={{usuario, setUsuario, email, setEmail, senha, setSenha, verificaUsuario, deslogar}}>
+        <UsuarioContext.Provider value={{usuario, setUsuario, email, setEmail, senha, setSenha, verificaUsuario, deslogar, verificaSeLogado}}>
             {children}
         </UsuarioContext.Provider>
     )

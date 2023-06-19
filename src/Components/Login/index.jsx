@@ -15,7 +15,7 @@ const Login = () => {
         // let resposta = aoLogar({email: email, senha: senha})
         let resposta = await verificaUsuario(email, senha)
         if(resposta.logado) {
-            navigate('/');
+            navigate(-1);
         }
     }
 
