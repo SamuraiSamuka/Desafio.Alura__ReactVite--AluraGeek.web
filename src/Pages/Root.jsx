@@ -1,4 +1,4 @@
-import { Link, Outlet, useLoaderData, useNavigation } from "react-router-dom";
+import { Link, Outlet, useLoaderData, useLocation, useNavigation } from "react-router-dom";
 import { getProdutos } from "../API/produtos";
 import dados from '../API/db.json'
 import { v4 as uuidv4 } from 'uuid';
@@ -6,6 +6,7 @@ import localforage from "localforage";
 import Cabecalho from "../Components/Cabecalho";
 import Rodape from "../Components/Rodape";
 import { getUsuarios } from "../API/usuarios";
+import { useEffect, useState } from "react";
 
 const produtosIniciais = dados.produtos.map(produto => {
   let produtoConvertido = {
@@ -51,9 +52,17 @@ export async function loader() {
 }
 
 export default function Root() {
-    let { produtos } = useLoaderData();
-    // retorna o estado atual da navegação que pode ser: "idle"(parado), "submitting" ou "loading"
+    let { produtos } = useLoaderData()
+    ;
+    const location = useLocation();
+    const [ historico, setHistorico ] = useState([]);
+
+    useEffect(() => {
+      setHistorico(historicoPrev => [...historicoPrev, location.pathname])
+    }, [location])
+
     const navigation = useNavigation();
+    // retorna o estado atual da navegação que pode ser: "idle"(parado), "submitting" ou "loading"
     if(navigation.state === "loading") {
       window.scroll({top: 0, behavior: "smooth"})
     }

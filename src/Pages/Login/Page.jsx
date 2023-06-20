@@ -1,37 +1,46 @@
 import './Login.css'
-import Formulario from '../Formulario';
-import CampoInput from '../CampoInput';
-import Botao from '../Botao';
+import Formulario from '../../Components/Formulario';
+import CampoInput from '../../Components/CampoInput';
+import Botao from '../../Components/Botao';
 import {Form, Link, useNavigate} from 'react-router-dom';
 import { UsuarioContext } from '../../common/Usuario';
 import { useContext } from 'react';
 
-const Login = () => {
-    const { email, setEmail, senha, setSenha, verificaUsuario } = useContext(UsuarioContext);
-    const navigate = useNavigate();
+// export async function action ({request}) {
+//   const formData = await request.formData()
+//   const { email, senha } = Object.fromEntries(formData)
+//   console.log(email, senha)
+//   const { verificaUsuario } = useContext(UsuarioContext)
+//   let resposta = await verificaUsuario(email, senha)
+//   console.log(resposta)
+// }
 
-    async function aoSubmeter(evento) {
-        evento.preventDefault()
-        // let resposta = aoLogar({email: email, senha: senha})
-        let resposta = await verificaUsuario(email, senha)
-        if(resposta.logado) {
-            navigate(-1);
-        }
-    }
+export default function PaginaLogin() {
+  const { email, setEmail, senha, setSenha, verificaUsuario } = useContext(UsuarioContext);
+  const navigate = useNavigate();
 
-    function mostrarEsconderSenha(evento) {
-        let icone = evento.target
-        let campoInput = icone.previousSibling
-        if (campoInput.type === "password") {
-            campoInput.type = "text"
-            icone.style.color = "#606060"
-        } else if (campoInput.type === "text") {
-            campoInput.type = "password"
-            icone.style.color = "#aaaaaa"
-        }
-    }
+  async function aoSubmeter(evento) {
+      evento.preventDefault()
+      let resposta = await verificaUsuario(email, senha)
+      if(resposta.logado) {
+          navigate(-1);
+      }
+  }
 
-    return (
+  function mostrarEsconderSenha(evento) {
+      let icone = evento.target
+      let campoInput = icone.previousSibling
+      if (campoInput.type === "password") {
+          campoInput.type = "text"
+          icone.style.color = "#606060"
+      } else if (campoInput.type === "text") {
+          campoInput.type = "password"
+          icone.style.color = "#aaaaaa"
+      }
+  }
+
+  return (
+    <main className="principal">
         <div className='formulario-container container'>
             <Formulario 
                 titulo="Iniciar Sessão"
@@ -70,7 +79,6 @@ const Login = () => {
                 </div>
             </Formulario>
         </div>
-    )
+    </main>
+  )
 }
-
-export default Login
