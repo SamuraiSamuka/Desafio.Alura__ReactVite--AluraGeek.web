@@ -1,11 +1,10 @@
-import { createContext } from "react";
-import { useLocation } from "react-router-dom";
+import { createContext, useState, useEffect } from "react";
 
-export const CarrinhoContext = createContext();
-CarrinhoContext.displayName = "Historico";
+export const HistoricoContext = createContext();
+HistoricoContext.displayName = "Historico";
 
 export function HistoricoProvider({children}){
-    const location = useLocation();
+    const [location, setLocation] = useState("");
     const [ historico, setHistorico ] = useState([]);
 
     useEffect(() => {
@@ -13,8 +12,8 @@ export function HistoricoProvider({children}){
     }, [location])
 
     return (
-        <CarrinhoContext.Provider value={{historico}}>
+        <HistoricoContext.Provider value={{historico, setLocation}}>
             {children}
-        </CarrinhoContext.Provider>
+        </HistoricoContext.Provider>
     )
 }

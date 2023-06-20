@@ -5,6 +5,7 @@ import Botao from '../../Components/Botao';
 import {Form, Link, useNavigate} from 'react-router-dom';
 import { UsuarioContext } from '../../common/Usuario';
 import { useContext } from 'react';
+import { HistoricoContext } from '../../common/Historico';
 
 // export async function action ({request}) {
 //   const formData = await request.formData()
@@ -18,12 +19,17 @@ import { useContext } from 'react';
 export default function PaginaLogin() {
   const { email, setEmail, senha, setSenha, verificaUsuario } = useContext(UsuarioContext);
   const navigate = useNavigate();
+  const { historico } = useContext(HistoricoContext);
 
   async function aoSubmeter(evento) {
       evento.preventDefault()
       let resposta = await verificaUsuario(email, senha)
       if(resposta.logado) {
-          navigate(-1);
+        if(historico[historico.length-2] === "/cadastrousuario" || historico[historico.length-2] === "/recuperarsenha") {
+            navigate('/')
+        } else {
+            navigate(-1);
+        }
       }
   }
 

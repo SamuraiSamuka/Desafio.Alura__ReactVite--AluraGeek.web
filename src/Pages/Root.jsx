@@ -6,7 +6,8 @@ import localforage from "localforage";
 import Cabecalho from "../Components/Cabecalho";
 import Rodape from "../Components/Rodape";
 import { getUsuarios } from "../API/usuarios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { HistoricoContext } from "../common/Historico";
 
 const produtosIniciais = dados.produtos.map(produto => {
   let produtoConvertido = {
@@ -53,12 +54,12 @@ export async function loader() {
 
 export default function Root() {
     let { produtos } = useLoaderData()
-    ;
     const location = useLocation();
-    const [ historico, setHistorico ] = useState([]);
+    const { setLocation, historico } = useContext(HistoricoContext)
 
     useEffect(() => {
-      setHistorico(historicoPrev => [...historicoPrev, location.pathname])
+      setLocation(location)
+      console.log(historico)
     }, [location])
 
     const navigation = useNavigation();
