@@ -24,7 +24,7 @@ export default function ItemCarrinho({item}) {
           </Link>
           <div className="item__texto">
             <h4 className='item__titulo'>{item.nome}</h4>
-            <h5 className='item__preco'>R$ {(item.preco * item.quantidade).toFixed(2)}</h5>
+            <h5 className='item__preco'>R$ {item.preco.toFixed(2)}</h5>
           </div>
         </div>
         <div className="item__botoes">
