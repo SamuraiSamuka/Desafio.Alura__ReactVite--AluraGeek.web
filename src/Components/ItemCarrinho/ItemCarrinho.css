@@ -8,6 +8,7 @@
     border-radius: 10px;
     background-color: #f9f9f9;
     filter: drop-shadow(0 3px 3px lightgray);
+    padding: 4px;
 }
 
 .item-carrinho:hover {
@@ -20,12 +21,12 @@
 }
 
 .item__info a {
-    height: 70px;
+    height: 60px;
 }
 
 .item__imagem {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     object-fit: cover;
     border-radius: 10px;   
 }
@@ -33,6 +34,7 @@
 .item__texto {
     padding: 10px 7px;
     height: fit-content;
+    margin-left: 10px;
 }
 
 .item__titulo {
