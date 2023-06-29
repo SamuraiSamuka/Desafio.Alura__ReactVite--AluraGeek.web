@@ -11,7 +11,7 @@
 .perfil__linha {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px
+    column-gap: 10px
 }
 
 
@@ -22,6 +22,10 @@
 
 .perfil-dangerzone__titulo {
     margin-bottom: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
 }
 
 .perfil__comandos {

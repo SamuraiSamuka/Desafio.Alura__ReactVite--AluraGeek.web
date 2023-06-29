@@ -28,9 +28,9 @@ export default function Perfil() {
           </div>
         </div>
         <div className="perfil-dangerzone">
-          <h3 className='perfil-dangerzone__titulo'>Zona de perigo</h3>
+          <h3 className='perfil-dangerzone__titulo'>Zona de perigo<span className="perfil__logout-botao material-symbols-outlined">warning</span></h3>
           <div className="perfil__comandos">
-            <NovoBotao funcao="comando" corBorda="#fb0">Alterar Dados</NovoBotao>
+            <NovoBotao funcao="link" corBorda="#fb0" to="/conta/perfil/editar">Alterar Dados</NovoBotao>
             <NovoBotao funcao="comando" corBorda="#fb0">Alterar Senha</NovoBotao>
             <NovoBotao funcao="comando" corBorda="#ff3030">Excluir conta</NovoBotao>
           </div>

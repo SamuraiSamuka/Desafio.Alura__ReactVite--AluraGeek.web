@@ -24,7 +24,6 @@ import Perfil from './Pages/Conta/Perfil/Page'
 
 const router = createBrowserRouter([
   {
-    path: "/",
     element: <Root />,
     errorElement: <PaginaErro404 />,
     loader: rootLoader,
@@ -78,7 +77,15 @@ const router = createBrowserRouter([
           },
           {
             path: "/conta/perfil",
-            element: <Perfil />
+            element: <Perfil />,
+          },
+          {
+            path: "/conta/perfil/editar",
+            element: <p>Hello</p>
+          },
+          {
+            path: "/conta/pedidos",
+
           }
         ]
       },
