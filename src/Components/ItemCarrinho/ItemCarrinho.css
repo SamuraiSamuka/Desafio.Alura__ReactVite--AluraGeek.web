@@ -1,14 +1,16 @@
 .item-carrinho {
     display: flex;
+    justify-content: space-between;
+    
     box-sizing: border-box;
     width: 100%;
     height: fit-content;
+    padding: 4px;
+    
     border: 1px solid #0002;
-    justify-content: space-between;
     border-radius: 10px;
     background-color: #f9f9f9;
     filter: drop-shadow(0 3px 3px lightgray);
-    padding: 4px;
 }
 
 .item-carrinho:hover {
@@ -18,6 +20,7 @@
 
 .item__info {
     display: flex;
+    align-items: center;
 }
 
 .item__info a {
@@ -28,7 +31,7 @@
     width: 60px;
     height: 60px;
     object-fit: cover;
-    border-radius: 10px;   
+    border-radius: 10px;
 }
 
 .item__texto {

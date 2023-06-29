@@ -1,32 +1,53 @@
+.conta {
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--preto-02);
+    border: 1px solid lightgray;
+    border-radius: 20px;
+}
+
+
+/* side-bar */
 .conta__side-bar {
     display: flex;
-    align-items: flex-end;
+    flex-direction:column;
     justify-content: space-between;
-    gap: 15px;
     
     width: 100%;
     padding: 10px;
     box-sizing: border-box;
 
-    /* border: 1px solid lightgray; */
-    background-color: var(--preto-02);
+    background-color: var(--preto-01);
     border-radius: 20px;
 }
 
+.conta__person {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin-bottom: 14px;
+}
 
 .conta__imagem {
     width: 80px;
     border-radius: 40px;
+    margin: 0 auto;
 }
 
-
+.conta__titulo {
+    text-align: center;
+    max-width: 200px;
+    margin: 0 auto;
+}
 
 .conta__opcoes {
     display: flex;
-    gap: 10px;
+    gap: 7px;
 }
 
 .conta__opcao {
+    text-align: center;
     font-weight: 600;
     font-size: 20px;
     line-height: 1.22;
@@ -34,26 +55,35 @@
     background-color: var(--preto-07);
     color: var(--preto-100);
     border-radius: 10px;
+    border: 2px solid white;
     
     padding: 5px 12px;
     width: 100%;
+    box-sizing: border-box;
 }
 
 
 .perfil__logout {
     display: flex;
     align-items: center;
-    gap: 10px;
+    justify-content: center;
+    gap: 7px;
 
     padding: 4px 10px;
 
     background-color: var(--vermelho-leve);
     color: white;
     border-radius: 10px;
+    border: 2px solid white;
+    
+    transition: .1s;
 }
 
 .perfil__logout:hover {
     cursor: pointer;
+    transform: scale(1.04);
+    transition: .1s;
+    background-color: var(--vermelho-hover);
 }
 
 .perfil__logout-botao {
@@ -66,16 +96,51 @@
 }
 
 
+
+/* conteúdo principal */
+.conta__content-box {
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.conta__content {
+    border-radius: 20px;
+    background-color: var(--preto-01);
+    border: 1px solid var(--preto-07);
+    width: 100%;
+    height: 100%;
+    padding: 14px;
+    box-sizing: border-box;
+}
+
+
 @media screen and (min-width: 720px){
+    .conta {
+        flex-direction: row;
+    }
+
+
     .conta__side-bar {
         width: fit-content;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: stretch;
+        justify-content: space-between;
+        
+        min-width: 150px;
+
+        border-right: 1px dashed lightgray;
     }
 
+    .conta__person {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
     .conta__imagem {
         width: 100px;
         border-radius: 50px;
+        margin: 0 auto;
     }    
 
     .conta__opcoes {

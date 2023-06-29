@@ -1,0 +1,27 @@
+.campo-texto {
+    width: fit-content;
+    height: 32px;
+    padding: 0 8px 4px 8px;
+    margin-top: 4px;
+    margin-bottom: 10px;
+
+    position: relative;
+
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+
+.campo-texto__label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--preto-75);
+
+    position: relative;
+    top: -7px;
+    background-color: white;
+    padding: 0 2px;
+}
+
+.campo-texto__texto {
+    margin-top: 0px;
+}

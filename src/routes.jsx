@@ -20,6 +20,7 @@ import PaginaCarrinho, {action as PaginaCarrinhoAction} from './Pages/Carrinho/P
 import PedidoRealizado from './Pages/PedidoRealizado/Page'
 import PaginaConta from './Pages/Conta/Page'
 import { HistoricoProvider } from './common/Historico'
+import Perfil from './Pages/Conta/Perfil/Page'
 
 const router = createBrowserRouter([
   {
@@ -74,6 +75,10 @@ const router = createBrowserRouter([
         children: [
           {
             path: "/conta/alterarsenha"
+          },
+          {
+            path: "/conta/perfil",
+            element: <Perfil />
           }
         ]
       },

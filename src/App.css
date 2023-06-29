@@ -9,6 +9,7 @@
   
   --branco: #ffffff;
   --background: #e5e5e569;
+  --preto-01: #fdfdfd;
   --preto-02: #fafafa;
   --preto-05: #f5f5f5;
   --preto-07: #f0f0f0;
@@ -19,7 +20,8 @@
   --preto-100: #464646;
   --cinza: #fbfbfb;
 
-  --vermelho-leve: #e34d4d;
+  --vermelho-leve: #f43e3e;
+  --vermelho-hover: #f45d5d;
 }
 
 body {
