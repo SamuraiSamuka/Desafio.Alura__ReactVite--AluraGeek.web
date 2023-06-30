@@ -81,7 +81,15 @@ const router = createBrowserRouter([
           },
           {
             path: "/conta/perfil/editar",
-            element: <p>Hello</p>
+            element: <p>Editar dados</p>
+          },
+          {
+            path: "/conta/perfil/alterarsenha",
+            element: <p>Alterar senha</p>
+          },
+          {
+            path: "/conta/perfil/excluir",
+            element: <p>Excluir conta</p>
           },
           {
             path: "/conta/pedidos",
