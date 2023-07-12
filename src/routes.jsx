@@ -105,6 +105,18 @@ const router = createBrowserRouter([
       {
         path: '/carrinho/pedidorealizado',
         element: <PedidoRealizado />
+      },
+      {
+        path: '/sobreodesenvolvedor',
+        element: <p>Sobre mim.</p>
+      },
+      {
+        path: '/politicaprivacidade',
+        element: <p>Politica de privacidade</p>
+      },
+      {
+        path: '/anuncie',
+        element: <p>Anuncie aqui</p>
       }
     ]
   }
