@@ -24,7 +24,7 @@ export default function Perfil() {
               value="15/05/1997"
               >Data de nascimento</CampoTexto>
             <CampoTexto
-              value="kakakakakakakakakakaka"
+              value="blabla blabla bla blablabla bla blabla"
               >Bio</CampoTexto>
           </div>
         </div>
