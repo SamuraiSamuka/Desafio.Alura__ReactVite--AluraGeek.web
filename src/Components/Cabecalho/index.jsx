@@ -19,7 +19,7 @@ const Cabecalho = ({produtos}) => {
                 <span id="close" className="cab-busca__icone   cab-busca__icone-close   material-symbols-outlined">close</span>
             </div>
             {usuario.nome? 
-                <NavLink to="/conta">
+                <NavLink to="/conta/perfil">
                     <div className="cab-perfil">
                         <span className="cab-perfil__icone material-symbols-outlined">account_circle</span>
                         <span className='cab-perfil__nome'>{usuario.nome}</span>

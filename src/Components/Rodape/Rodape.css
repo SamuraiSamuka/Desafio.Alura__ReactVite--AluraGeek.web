@@ -16,6 +16,12 @@
     justify-content: center;
 }
 
+.contato__linha {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
 .saiba-mais__nav {
     display: grid;
     gap: 20px;
@@ -73,6 +79,13 @@
 
     .saiba-mais__contato {
         margin-top: 0;
+    }
+}
+
+@media screen and (min-width: 1400px){
+    .contato__linha {
+        flex-direction: row;
+        column-gap: 10px;
     }
 }
 

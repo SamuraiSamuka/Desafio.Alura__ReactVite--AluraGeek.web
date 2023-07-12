@@ -51,6 +51,11 @@ body {
   opacity: 0.5;
 }
 
+.link-chamativo {
+  color: var(--azul-80);
+  font-weight: 600;
+}
+
 h2 {
   font-size: 22px;
   font-weight: 700;

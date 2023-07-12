@@ -5,7 +5,7 @@
     box-sizing: border-box;
     min-height: 56px;
     width: 100%;
-    padding: 12px 8px 2px 12px;
+    padding: 8px 6px 0px 9px;
 
     background-color: var(--branco);
     border-bottom: solid 2px var(--preto-25);
@@ -18,7 +18,7 @@
 
 .campo__label {
     position: absolute;
-    top: 8px;
+    top: 7px;
 
     font-size: 14px;
     font-weight: 400;
