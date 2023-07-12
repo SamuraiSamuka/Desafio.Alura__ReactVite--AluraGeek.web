@@ -25,12 +25,12 @@ export default function PaginaConta() {
                   corAtivoPrimaria="#59e"
                   corAtivoSecundaria="#fff"
                 >Perfil</NavBotao>
-                <NavBotao 
+                {/* <NavBotao 
                   to="/conta/pedidos" 
                   className="conta__opcao"
                   corAtivoPrimaria="#59e"
                   corAtivoSecundaria="#fff"
-                >Pedidos</NavBotao>
+                >Pedidos</NavBotao> */}
                   
                 <button className="perfil__logout"  onClick={deslogar}>
                   <span className="perfil__logout-botao material-symbols-outlined">logout</span>

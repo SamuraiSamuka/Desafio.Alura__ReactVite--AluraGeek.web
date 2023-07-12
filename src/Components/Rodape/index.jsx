@@ -23,12 +23,10 @@ const Rodape = () => {
                 </div>
                 <div className="links-container saiba-mais__grid">
                     <nav className="saiba-mais__nav">
-                        <Link to="null" className="saiba-mais__nav__link">Quem somos nós</Link>
+                        <Link to="null" className="saiba-mais__nav__link">Quem sou eu</Link>
                         <Link to="null" className="saiba-mais__nav__link">Política de privacidade</Link>
-                        <Link to="null" className="saiba-mais__nav__link">Programa fidelidade</Link>
-                        <Link to="null" className="saiba-mais__nav__link">Nossas lojas</Link>
-                        <Link to="null" className="saiba-mais__nav__link">Quero ser franqueado</Link>
                         <Link to="null" className="saiba-mais__nav__link">Anuncia aqui</Link>
+                        <Link to="null" className="saiba-mais__nav__link">Erro 404</Link>
                     </nav>
                 </div>
                 <div className="contato-container saiba-mais__grid">
