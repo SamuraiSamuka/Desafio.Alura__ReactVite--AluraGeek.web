@@ -66,6 +66,10 @@ export default function Root() {
       console.log(historico)
     }, [location])
 
+    useEffect(() => {
+      if(firstLoad) window.location.reload();
+    }, [firstLoad])
+
     const navigation = useNavigation();
     // retorna o estado atual da navegação que pode ser: "idle"(parado), "submitting" ou "loading"
     if(navigation.state === "loading") {
