@@ -1,15 +1,15 @@
 import Banner from "../Components/Banner"
 import SecaoProduto from "../Components/SecaoProduto"
-import { redirect, useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import { getProdutos } from "../API/produtos";
 
+// apagar depois
 export async function loader() {
     let produtos = await getProdutos();
     return { produtos };
 }
 
 export default function PaginaInicial() {
-    const { produtos } = useLoaderData()
     return (
       <>
       <Banner />
@@ -22,8 +22,8 @@ export default function PaginaInicial() {
           ].map(item => {
             return (
               <SecaoProduto
-                produtos={produtos}
                 categoria={item.categoria}
+                key={item.categoria}
               >{item.titulo}</SecaoProduto>      
             )
           })

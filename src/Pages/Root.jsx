@@ -55,10 +55,10 @@ export async function loader() {
 }
 
 export default function Root() {
-    let { produtos, firstLoad } = useLoaderData();
+    let categoria = "roupas";
+    let { produtos, firstLoad } = useLoaderData(categoria);
     const location = useLocation();
     const { setLocation, historico } = useContext(HistoricoContext);
-    const [firstTime, setFirstTime] = useState(firstLoad);
 
 
     useEffect(() => {

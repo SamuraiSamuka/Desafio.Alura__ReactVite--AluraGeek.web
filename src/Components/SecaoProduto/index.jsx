@@ -1,9 +1,23 @@
 import './SecaoProduto.css'
 import Produto from "../Produto"
 import { Link } from 'react-router-dom'
+import { getProdutos } from '../../API/produtos'
+import { useEffect, useState } from 'react'
 
-const SecaoProduto = ({produtos, categoria, children, admin}) => {
-    const produtosSelecionados = produtos.filter(produto => produto.categoria === categoria)
+const SecaoProduto = ({categoria, children, admin}) => {
+    const [produtos, setProdutos] = useState([])
+
+    async function buscaProdutos(categoria){
+        const produtosSelecionados = await getProdutos(categoria);
+        return produtosSelecionados;
+    }
+
+    useEffect(() => {
+        (async () => {
+            setProdutos(await buscaProdutos(categoria))
+        })();
+    }, [produtos])
+
     return (
     <div className="products-section container" id={categoria}>
         <div className="products-section__header">
@@ -13,7 +27,7 @@ const SecaoProduto = ({produtos, categoria, children, admin}) => {
             </Link>
         </div>
         <div className="products-section__body">
-            {produtosSelecionados.map((produto, i) => i < 6 ? <Produto key={produto.id} id={produto.id} name={produto.nome} price={produto.preco} source={produto.imagem_src} admin={admin}></Produto>: "")}
+            {produtos.map((produto, i) => i < 6 ? <Produto key={produto.id} id={produto.id} name={produto.nome} price={produto.preco} source={produto.imagem_src} admin={admin}></Produto>: "")}
         </div>
     </div>)
 }

@@ -14,7 +14,7 @@ const Cabecalho = ({produtos}) => {
         <div className='cabecalho container'>
             <Logo />
             <div className='cab-busca'>
-                <CaixaDeBusca produtos={produtos}/>
+                <CaixaDeBusca/>
                 <span id="lupa" className="cab-busca__icone   cab-busca__icone-lupa   material-symbols-outlined">search</span>
                 <span id="close" className="cab-busca__icone   cab-busca__icone-close   material-symbols-outlined">close</span>
             </div>

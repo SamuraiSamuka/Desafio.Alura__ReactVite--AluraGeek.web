@@ -31,7 +31,7 @@ export async function getProdutos(query){
     let produtos = await localforage.getItem("produtos");
     if (!produtos) produtos = [];
     if (query) {
-        produtos = matchSorter(produtos, query, { keys: ["nome", "categoria", "descricao"]})
+        produtos = matchSorter(produtos, query, { keys: [{threshold: matchSorter.rankings.CONTAINS, key: "nome"}, {threshold: matchSorter.rankings.CONTAINS, key: "categoria"} , {threshold: matchSorter.rankings.CONTAINS, key: "descricao"}]})
     }
     return produtos
 }
