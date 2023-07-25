@@ -21,6 +21,7 @@ import PedidoRealizado from './Pages/PedidoRealizado/Page'
 import PaginaConta from './Pages/Conta/Page'
 import { HistoricoProvider } from './common/Historico'
 import Perfil from './Pages/Conta/Perfil/Page'
+import Post from './Components/Post'
 
 const router = createBrowserRouter([
   {
@@ -116,7 +117,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/anuncie',
-        element: <p>Anuncie aqui</p>
+        element: <Post texto={" ### Anuncie aqui \n\n Logo mais estará disponível nesta aplicação a funcionalidade de anunciar produtos"}/>
       }
     ]
   }

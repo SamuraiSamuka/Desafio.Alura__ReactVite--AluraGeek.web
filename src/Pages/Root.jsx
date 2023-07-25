@@ -38,9 +38,11 @@ const usuariosIniciais = dados.usuarios.map(usuario => {
 
 export async function loader() {
     let produtos = await getProdutos();
+    let firstLoad = false;
     if(produtos.length < 1) {
       await localforage.setItem("produtos", produtosIniciais)
       produtos = await localforage.getItem("produtos")
+      firstLoad = true;
     }
 
     let usuarios = await getUsuarios();
@@ -49,13 +51,15 @@ export async function loader() {
       usuarios = await localforage.getItem("usuarios")
     }
     
-    return { produtos, usuarios}
+    return { produtos, usuarios, firstLoad}
 }
 
 export default function Root() {
-    let { produtos } = useLoaderData()
+    let { produtos, firstLoad } = useLoaderData();
     const location = useLocation();
-    const { setLocation, historico } = useContext(HistoricoContext)
+    const { setLocation, historico } = useContext(HistoricoContext);
+    const [firstTime, setFirstTime] = useState(firstLoad);
+
 
     useEffect(() => {
       setLocation(location)

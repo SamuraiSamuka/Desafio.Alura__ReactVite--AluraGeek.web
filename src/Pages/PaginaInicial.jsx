@@ -9,24 +9,25 @@ export async function loader() {
 }
 
 export default function PaginaInicial() {
-    redirect("/")
     const { produtos } = useLoaderData()
     return (
       <>
-      <Banner></Banner>
+      <Banner />
       <main className='principal'>
-        <SecaoProduto
-          produtos={produtos.filter(produto => produto.categoria === "star_wars")}
-          categoria="star_wars"
-        >Star Wars</SecaoProduto>
-        <SecaoProduto
-          produtos={produtos.filter(produto => produto.categoria === "consoles")}
-          categoria="consoles"
-        >Consoles</SecaoProduto>
-        <SecaoProduto
-          produtos={produtos.filter(produto => produto.categoria === "roupas")}
-          categoria="roupas"
-        >Roupas</SecaoProduto>
+        {
+          [
+            {categoria: "star_wars", titulo: "Star Wars"}, 
+            {categoria: "consoles", titulo: "Consoles"}, 
+            {categoria: "roupas", titulo: "Roupas"}
+          ].map(item => {
+            return (
+              <SecaoProduto
+                produtos={produtos}
+                categoria={item.categoria}
+              >{item.titulo}</SecaoProduto>      
+            )
+          })
+        }
       </main>
       </>
     )
