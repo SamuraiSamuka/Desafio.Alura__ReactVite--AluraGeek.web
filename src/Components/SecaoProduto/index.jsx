@@ -7,14 +7,9 @@ import { useEffect, useState } from 'react'
 const SecaoProduto = ({categoria, children, admin}) => {
     const [produtos, setProdutos] = useState([])
 
-    async function buscaProdutos(categoria){
-        const produtosSelecionados = await getProdutos(categoria);
-        return produtosSelecionados;
-    }
-
     useEffect(() => {
         (async () => {
-            setProdutos(await buscaProdutos(categoria))
+            setProdutos(await getProdutos(categoria))
         })();
     }, [produtos])
 

@@ -9,10 +9,19 @@ import emailjs from "@emailjs/browser";
 const Rodape = () => {
 
     
-    async function enviaEmail({request}) {
-        console.log(request)
-        const dadosEmail = {email: "email", senha: "senha"}
-        const response = await emailjs.send("gmail", "template_9i5aazq", dadosEmail, "G76TIJYKwoArxKzac")
+    async function enviaEmail(event) {
+        event.preventDefault();
+        const form = event.target;
+        const formData = new FormData(form);
+        const dadosEmail = Object.fromEntries(formData);
+        form[0].value = ""
+        form[1].value = ""
+        form[2].value = ""
+
+        const response = await emailjs.send("gmail", "template_sdsm4oq", dadosEmail, "G76TIJYKwoArxKzac")
+        if(response.status === 200) {
+            console.log("E-mail enviado!")
+        } else console.log(response.status)
     }
 
     return (
@@ -34,11 +43,13 @@ const Rodape = () => {
                         <Form method='post' onSubmit={enviaEmail}>
                             <div className="contato__linha">
                                 <CampoInput 
+                                    name="nome"
                                     minimo={4}
                                     maximo={40}
                                     required
                                     >Nome</CampoInput>
                                 <CampoInput 
+                                    name="email"
                                     minimo={4}
                                     maximo={40}
                                     type="email"
@@ -46,6 +57,7 @@ const Rodape = () => {
                                     >Email</CampoInput>
                             </div>
                             <CampoInput 
+                                name="mensagem"
                                 type="textarea"
                                 maximo={350}
                                 required
