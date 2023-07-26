@@ -117,7 +117,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/anuncie',
-        element: <Post texto={" ## Anuncie aqui \n\n Logo mais estará disponível nesta aplicação a funcionalidade de anunciar produtos"}/>
+        element: <Post texto={" ## Anuncie aqui \n\n Logo mais estará disponível nesta aplicação a funcionalidade de criar, editar e deletar produtos."}/>
       }
     ]
   }
