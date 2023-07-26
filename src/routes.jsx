@@ -109,15 +109,15 @@ const router = createBrowserRouter([
       },
       {
         path: '/sobreodesenvolvedor',
-        element: <p>Sobre mim.</p>
+        element: <Post texto={" ## Quem sou eu? \n Me chamo Samuel, sou um desenvolvedor frontEnd com experiência em projetos voluntários e projetos pessoais. \n [Acesse aqui meu linkedIn](https://www.linkedin.com/in/samuel-silva-de-carvalho/)."}/>
       },
       {
         path: '/politicaprivacidade',
-        element: <p>Politica de privacidade</p>
+        element: <Post texto={`## Política de privacidade \n Não coletamos seus dados. \r\n Todos os dados são armazenados na memória do seu navegador somente. \nAo criar, editar ou remover produtos ou usuários, tudo isso ocorre apenas na sua máquina, no seu navegador.`}/>
       },
       {
         path: '/anuncie',
-        element: <Post texto={" ### Anuncie aqui \n\n Logo mais estará disponível nesta aplicação a funcionalidade de anunciar produtos"}/>
+        element: <Post texto={" ## Anuncie aqui \n\n Logo mais estará disponível nesta aplicação a funcionalidade de anunciar produtos"}/>
       }
     ]
   }
