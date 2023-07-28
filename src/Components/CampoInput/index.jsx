@@ -125,6 +125,7 @@ const CampoInput = ({id, type, name, children, valor, minimo, maximo, required, 
             <div className="campo">
                 <label className="campo__label">{children}</label>
                 <input 
+                    autoComplete={type === "password"? "current-password" : type === "email" ? "email" : "off"}
                     className="campo__input" 
                     id={id} 
                     name={name || ""}

@@ -14,17 +14,18 @@
 .logo-container {
     display: flex;
     justify-content: center;
+    height: fit-content;
 }
 
 .contato__linha {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 9px;
 }
 
 .saiba-mais__nav {
     display: grid;
-    gap: 20px;
+    gap: 15px;
     text-align: center;
     height: fit-content;
 }
@@ -64,12 +65,18 @@
 
     .saiba-mais__nav {
         text-align: start;
+        gap: 20px;
     }
 }
 
 @media screen and (min-width: 1020px) {
+    .contato__linha {
+        flex-direction: row;
+        column-gap: 9px;
+    }
+
     .saiba-mais {
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 0.65fr 0.85fr 1fr 1fr;
         grid-template-areas: 'logo links saiba-mais__contato saiba-mais__contato';
     }
 
@@ -85,7 +92,7 @@
 @media screen and (min-width: 1400px){
     .contato__linha {
         flex-direction: row;
-        column-gap: 10px;
+        column-gap: 9px;
     }
 }
 

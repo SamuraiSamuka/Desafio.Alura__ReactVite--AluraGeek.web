@@ -15,7 +15,7 @@ export default function PaginaConta() {
           <div className="conta">
             <div className="conta__side-bar">
               <div className="conta__person">
-                <img src={imagePerfil || imagePerson} alt="" className="conta__imagem" />
+                <img src={usuario.imagem_perfil || imagePerson} alt="" className="conta__imagem" />
                 <h3 className='conta__titulo'>Bem vindo(a), {usuario.nome}</h3>
               </div>
               <nav className="conta__opcoes">

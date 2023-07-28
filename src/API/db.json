@@ -168,7 +168,22 @@
       "dataNascimento": "01/01/2001",
       "email": "samuel@hotmail.com",
       "senha": "12345678",
-      "bio": "Trust me, I'm a programmer"
+      "bio": "Trust me, I'm a programmer",
+      "imagem_perfil": "https://github.com/SamuraiSamuka.png"
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "conteudo" : " ## Quem sou eu \n Oi, tudo bem? Me chamo Samuel e estou feliz de te ver por aqui. Sou desenvolvedor front-end e busco me tornar um desenvolvedor full-stack. \n ### Meus estudos \n Comecei meus estudos de programação na Khan academy e na sololearn, onde aprendi HTML, CSS e JavaScript. Me formei como tecnólogo em análise e desenvolvimento de sistemas (ADS) na FAEL(Faculdade Educacional da Lapa), no ano de 2021. Na faculdade aprendi bastante de várias matérias como algoritmos, banco de dados, arquitetura de computadores e análise de sistemas. Assim que me formei decidi continuar me aprofundando nos estudos em programação e por isso assinei a Alura, onde aprendi ReactJs, nodeJs, express e postegreSQL, entre outros tantos. \n ### Origem desse projeto \n A alura conta com um projeto muito interessante chamado challenges. Challenges são desafios que fornecem designs e requisitos de um projeto modelo, deixando a responsabilidade do desenvolvimento para o Aluno. Pôr em prática é sem dúvidas uma das melhores formas de aprender. E este projeto, o 'Samuka Geek', é fruto de um desses challenges. \n ### Minha experiência com projetos voluntários \n Recentemente eu conheci também outro projeto incrível o SouJunior Lab, onde júniores podem adiquirir experiência participando de projetos voluntários. Sou um 'Founder' de um desses projetos, chamado care4you. O care4you é uma aplicação voltada à área da saúde que busca conectar pacientes à clinícas e profissionais de saúde."
+    },
+    {
+      "id": 2,
+      "conteudo": "## Política de privacidade \n Não coletamos seus dados. \r\n Todos os dados são armazenados na memória do seu navegador somente. \n Ao criar, editar ou remover produtos ou usuários, tudo isso ocorre apenas na sua máquina, no seu navegador."
+    },
+    {
+      "id": 3,
+      "conteudo": " ## Anuncie aqui \n\n Logo mais estará disponível nesta aplicação a funcionalidade de criar, editar e deletar produtos."
     }
   ]
 }

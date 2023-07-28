@@ -1,8 +1,20 @@
 import CampoTexto from '../../../Components/CampoTexto'
 import NovoBotao from '../../../Components/NovoBotao'
 import './Perfil.css'
+import { useContext } from 'react'
+import { UsuarioContext } from '../../../common/Usuario'
 
 export default function Perfil() {
+  const {usuario} = useContext(UsuarioContext);
+
+  function converteData(stringData) {
+    const data = new Date(stringData);
+    const dia = data.getUTCDate();
+    const mes = data.getUTCMonth();
+    const ano = data.getFullYear();
+    return (`${dia}/${mes}/${ano}`)
+  }
+
   return (
     <div className="perfil">
       <div className="perfil__info">
@@ -10,21 +22,21 @@ export default function Perfil() {
         <div className="perfil__campos">
           <div className="perfil__linha">
             <CampoTexto
-              value="Samuel"
+              value={usuario.nome}
               >Nome</CampoTexto>
             <CampoTexto
-              value="Silva de Carvalho"
+              value={usuario.sobrenome}
               >Sobrenome</CampoTexto>
           <CampoTexto
-            value="samuel.carvalho.dev@gmail.com"
+            value={usuario.email}
             >E-mail</CampoTexto>
           </div>
           <div className="perfil__linha">
             <CampoTexto
-              value="15/05/1997"
+              value={converteData(usuario.dataNascimento)}
               >Data de nascimento</CampoTexto>
             <CampoTexto
-              value="blabla blabla bla blablabla bla blabla"
+              value={usuario.bio}
               >Bio</CampoTexto>
           </div>
         </div>

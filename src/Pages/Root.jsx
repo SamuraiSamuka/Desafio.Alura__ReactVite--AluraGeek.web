@@ -9,6 +9,8 @@ import { getUsuarios } from "../API/usuarios";
 import { useContext, useEffect, useState } from "react";
 import { HistoricoContext } from "../common/Historico";
 
+navigator.serviceWorker.register('service-worker.js')
+
 const produtosIniciais = dados.produtos.map(produto => {
   let produtoConvertido = {
     id: uuidv4(),

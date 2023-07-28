@@ -22,6 +22,7 @@ import PaginaConta from './Pages/Conta/Page'
 import { HistoricoProvider } from './common/Historico'
 import Perfil from './Pages/Conta/Perfil/Page'
 import Post from './Components/Post'
+import posts from './API/db.json'
 
 const router = createBrowserRouter([
   {
@@ -109,15 +110,15 @@ const router = createBrowserRouter([
       },
       {
         path: '/sobreodesenvolvedor',
-        element: <Post texto={" ## Quem sou eu? \n Me chamo Samuel, sou um desenvolvedor frontEnd com experiência em projetos voluntários e projetos pessoais. \n [Acesse aqui meu linkedIn](https://www.linkedin.com/in/samuel-silva-de-carvalho/)."}/>
+        element: <Post texto={posts.posts.at(0).conteudo}/>
       },
       {
         path: '/politicaprivacidade',
-        element: <Post texto={`## Política de privacidade \n Não coletamos seus dados. \r\n Todos os dados são armazenados na memória do seu navegador somente. \nAo criar, editar ou remover produtos ou usuários, tudo isso ocorre apenas na sua máquina, no seu navegador.`}/>
+        element: <Post texto={posts.posts.at(1).conteudo}/>
       },
       {
         path: '/anuncie',
-        element: <Post texto={" ## Anuncie aqui \n\n Logo mais estará disponível nesta aplicação a funcionalidade de criar, editar e deletar produtos."}/>
+        element: <Post texto={posts.posts.at(2).conteudo}/>
       }
     ]
   }

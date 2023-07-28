@@ -17,7 +17,7 @@ const Rodape = () => {
         form[0].value = ""
         form[1].value = ""
         form[2].value = ""
-
+        
         const response = await emailjs.send("gmail", "template_sdsm4oq", dadosEmail, "G76TIJYKwoArxKzac")
         if(response.status === 200) {
             console.log("E-mail enviado!")
