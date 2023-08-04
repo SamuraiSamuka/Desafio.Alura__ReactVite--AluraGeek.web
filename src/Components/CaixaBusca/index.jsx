@@ -1,22 +1,22 @@
-import { getProdutos } from '../../API/produtos';
-import './CaixaBusca.css'
-import {useEffect, useState} from 'react'
-import { Link } from 'react-router-dom'
+import { getProdutos } from "../../API/produtos";
+import "./CaixaBusca.css";
+import {useEffect, useState} from "react";
+import { Link } from "react-router-dom";
 
 export default function CaixaBusca() {
   const [input, setInput] = useState("");
   const [resultados, setResultados] = useState([]);
 
   async function buscaProdutos(query){
-    const resultados = await getProdutos(query)
-    return resultados
+    const resultados = await getProdutos(query);
+    return resultados;
   }
 
   useEffect(() => {
     (async () => {
-      setResultados(await buscaProdutos(input))
-    })()
-  }, [input])
+      setResultados(await buscaProdutos(input));
+    })();
+  }, [input]);
 
   return (
     <div className="caixa-busca">
@@ -35,7 +35,7 @@ export default function CaixaBusca() {
           input != "" ?
             resultados.length === 0 ?
               <p className="caixa-busca__resultado" key={0} >Produto não encontrado</p> 
-            :
+              :
               resultados.map((r, i) => {
                 if (i < 10) {
                   return (
@@ -43,10 +43,10 @@ export default function CaixaBusca() {
                       <img src={r.imagem_src} alt="" className="caixa-busca__resultado-imagem" />
                       {r.nome}
                     </Link>
-                  )
+                  );
                 }
               })
-          : ""
+            : ""
         }
         {/* {
           resultados.length === 0 ? 
@@ -64,5 +64,5 @@ export default function CaixaBusca() {
         }  */}
       </div>
     </div>
-  )
+  );
 }

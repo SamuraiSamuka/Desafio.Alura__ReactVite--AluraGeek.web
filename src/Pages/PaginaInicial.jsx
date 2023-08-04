@@ -1,17 +1,17 @@
-import Banner from "../Components/Banner"
-import SecaoProduto from "../Components/SecaoProduto"
+import Banner from "../Components/Banner";
+import SecaoProduto from "../Components/SecaoProduto";
 import { useLoaderData } from "react-router-dom";
 import { getProdutos } from "../API/produtos";
 
 // apagar depois
 export async function loader() {
-    let produtos = await getProdutos();
-    return { produtos };
+  let produtos = await getProdutos();
+  return { produtos };
 }
 
 export default function PaginaInicial() {
-    return (
-      <>
+  return (
+    <>
       <Banner />
       <main className='principal'>
         {
@@ -25,10 +25,10 @@ export default function PaginaInicial() {
                 categoria={item.categoria}
                 key={item.categoria}
               >{item.titulo}</SecaoProduto>      
-            )
+            );
           })
         }
       </main>
-      </>
-    )
+    </>
+  );
 }

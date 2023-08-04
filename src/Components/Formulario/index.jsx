@@ -1,12 +1,12 @@
-import './Formulario.css'
+import "./Formulario.css";
 
 const Formulario = ({titulo, children}) => {
-    return (
-        <div className="formulario">
-            <h4 className="formulario__titulo">{titulo}</h4>
-            {children}
-        </div>
-    )
-}
+  return (
+    <div className="formulario">
+      <h4 className="formulario__titulo">{titulo}</h4>
+      {children}
+    </div>
+  );
+};
 
-export default Formulario
+export default Formulario;

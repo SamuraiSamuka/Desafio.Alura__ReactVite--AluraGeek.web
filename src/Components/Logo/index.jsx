@@ -1,12 +1,12 @@
-import { Link } from 'react-router-dom'
-import './Logo.css'
-import logo from './SamukaGeek.svg'
+import { Link } from "react-router-dom";
+import "./Logo.css";
+import logo from "./SamukaGeek.svg";
 
 const Logo = () => {
 
-    return (
-        <Link to="/" className="logo__link"><img src={logo} alt="logo do alura Geek" className="logo__imagem" /></Link>
-    )
-}
+  return (
+    <Link to="/" className="logo__link"><img src={logo} alt="logo do alura Geek" className="logo__imagem" /></Link>
+  );
+};
 
-export default Logo
+export default Logo;

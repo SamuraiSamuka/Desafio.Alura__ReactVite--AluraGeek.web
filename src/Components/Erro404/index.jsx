@@ -1,5 +1,5 @@
-import './Erro404.css'
-import imagemPng from './404Error.gif'
+import "./Erro404.css";
+import imagemPng from "./404Error.gif";
 
 export default function Erro404() {
   return (
@@ -10,5 +10,5 @@ export default function Erro404() {
         <a className='erro404-attibution' href="https://storyset.com/web">Web illustrations by Storyset</a>
       </div>
     </main>
-  )
+  );
 }
